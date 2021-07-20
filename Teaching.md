@@ -23,7 +23,6 @@ title: Teaching
 
 ***
 ## Courses
-Click [here](https://naghdeostad.persianblog.ir/) to visit my courses weblog or to comment on a course you had with me.
 
 ### Emory University (2020-present)
 * [An Introduction to Blind Source Separation and Independent Component Analysis](https://github.com/rsameni/BSSLecture.git)
