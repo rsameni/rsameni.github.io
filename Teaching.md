@@ -43,5 +43,5 @@ title: Teaching
 * Signal processing lab
 * Digital systems design lab
 
-## Sharif University of Technology (2003-2005)
+### Sharif University of Technology (2003-2005)
 * Introduction to electrical engineering
