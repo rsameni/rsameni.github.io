@@ -14,11 +14,11 @@ title: Teaching
 
 ***
 ## Lectures
-* [Methods and Technologies for Prenatal Cardiac Monitoring](https://github.com/rsameni/rsameni.github.io/tree/master/Research/Presentations/RezaSameniFetalECGLectureEmoryUniversity4Jun2019.pdf), Invited Lecture, Department of Biomedical Informatics, Emory University, 4 Jul 2019.
-* [Fetal Cardiac Signal Processing Techniques](https://github.com/rsameni/rsameni.github.io/tree/master/Research/Presentations/FetalECGLectureItalySummerSchoolJul2018.pdf), International Summer School on Technologies and Signal Processing in Perinatal Medicine, Pula, Sardinia, Italy, 2-6 Jul 2018.
-* Theory and Practice of Kalman Filters in Biomedical Engineering; Application in Fetal ECG Processing, 2nd International Summer School on Technologies and Signal Processing in Perinatal Medicine, Pula, Sardinia, Italy, 16-23 Jul 2021. Prerequisites:
+* [Kalman Filters in Biomedical Applications; From Theory to Practice](https://github.com/rsameni/rsameni.github.io/tree/master/Research/Presentations/KalmanFilterTutorial_TSPPM2021_Italy.pdf), 2nd International Summer School on Technologies and Signal Processing in Perinatal Medicine, Pula, Sardinia, Italy, 16-23 Jul 2021. Prerequisites:
   * [A Primer on Dynamic Systems](https://github.com/rsameni/rsameni.github.io/tree/master/Research/Presentations/DynamicSystemsPrimer-July2021.pdf)
   * Some background on [Biological systems modeling](https://github.com/rsameni/rsameni.github.io/tree/master/Research/Presentations/CourseSlides-BiologicalSystemsModeling-July2021.pdf) 
+* [Methods and Technologies for Prenatal Cardiac Monitoring](https://github.com/rsameni/rsameni.github.io/tree/master/Research/Presentations/RezaSameniFetalECGLectureEmoryUniversity4Jun2019.pdf), Invited Lecture, Department of Biomedical Informatics, Emory University, 4 Jul 2019.
+* [Fetal Cardiac Signal Processing Techniques](https://github.com/rsameni/rsameni.github.io/tree/master/Research/Presentations/FetalECGLectureItalySummerSchoolJul2018.pdf), International Summer School on Technologies and Signal Processing in Perinatal Medicine, Pula, Sardinia, Italy, 2-6 Jul 2018.
  
 
 ***
