@@ -1,0 +1,2369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Interpretive Signal Processing</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<!-- html,0,next,info,charset=utf-8 --> 
+<meta name="src" content="ISP.tex"> 
+<meta name="date" content="2017-10-17 12:32:00"> 
+<link rel="stylesheet" type="text/css" href="ISP.css"> 
+</head><body 
+>
+<div 
+class="colorbox" id="colorbox1">
+  <table width="1326" border="1" bgcolor="#ECE9D8">
+    <tr>
+      <td><p><span class="noindent"><span 
+class="rm-lmss-17x-x-138">Interpretive</span> <span 
+class="rm-lmss-17x-x-138">Signal Processing </span><span 
+class="rm-lmss-17x-x-138"></span> </span></p>
+        <p>Interpretive Signal Processing (ISP<a name="_GoBack"></a>) is  a new concept for exploiting signal processing algorithms and techniques for  analyzing and extracting useful information from non-numeric data, i.e.,  sequences with non-numeric elements, which can be considered as discrete/digital  non-numeric signals. Genomic data like DNA sequences or Protein sequences can be  considered as digital non-numeric signals. DNA sequences contain from 4  nucleotides which represent by 4 alphabet letters: A, C, G, T. Similarly,  protein sequences contain from 20 amino acids which illustrated by 20  alphabetic letters. The main idea behind ISP is how to interpret a signal processing algorithm for applying it on  non-numeric data and gain useful information. Some of the instances of ISP are presented in the following papers:</p>
+        <p>H. Hassani Saadi, R. Sameni, and A. Zollanvari, “Interpretive time-frequency    analysis of genomic sequences,” <em>BMC Bioinformatics</em>, vol. 18, no. 4,    p. 154, 2017. [Online]. Available: <a href="http://dx.doi.org/10.1186/s12859-017-1524-0">http://dx.doi.org/10.1186/s12859-017-1524-0</a> [ <a href="http://home.cse.shirazu.ac.ir/%7Esameni/journals_bib.html#HassaniSaadi2017">bib</a> | <a href="http://dx.doi.org/10.1186/s12859-017-1524-0">DOI</a> | <a href="http://dx.doi.org/10.1186/s12859-017-1524-0">http</a> ]</p>
+        <p>H. Hassani Saadi and R. Sameni, “Using matched filters for similarity search    in genomic data,” in <em>Proceedings of the 16th CSI International    Symposium on Artificial Intelligence and Signal Processing (AISP)</em>, Shiraz,    Iran, 2-3 May 2012 2012, pp. 469-472.  [ <a href="http://home.cse.shirazu.ac.ir/%7Esameni/conferences_bib.html#Hassani2012">bib</a> ]</p>
+        <p>Please click <a href="http://home.cse.shirazu.ac.ir/~sameni/ISP/Archive.rar">here</a> to download  the Matlab source codes for generating the results of these papers.</p>
+        </td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</div>
+<!--l. 116--><p class="noindent" ><span 
+class="rm-lmss-17x-x-138">Interpretive</span>
+<span 
+class="rm-lmss-17x-x-138">Time-Frequency</span>
+<span 
+class="rm-lmss-17x-x-138">Analysis</span>
+<span 
+class="rm-lmss-17x-x-138">of</span>
+<span 
+class="rm-lmss-17x-x-138">Genomic</span>
+<span 
+class="rm-lmss-17x-x-138">Sequences</span>
+<!--l. 134--><p class="noindent" ><span 
+class="rm-lmss-12x-x-91">Hamed Hassani Saadi</span><sup class="textsuperscript"><span 
+class="rm-lmss-9">1</span> </sup><span 
+class="rm-lmss-12x-x-91">, Reza Sameni</span><sup class="textsuperscript"><span 
+class="rm-lmss-9">1</span></sup><span 
+class="rm-lmss-12x-x-91"> and Amin Zollanvari</span><sup class="textsuperscript"><span 
+class="rm-lmss-9">2</span></sup><sup class="textsuperscript"><span 
+class="rm-lmss-9">*</span></sup>
+<p class="noindent" ><a 
+ id="x1-2r1"></a>
+  <sup class="textsuperscript"><span 
+class="rm-lmss-9">*</span></sup><span 
+class="rm-lmss-8x-x-87">Correspondence:</span>
+  <span 
+class="rm-lmss-8x-x-87">amin.zollanvari@nu.edu.kz</span>
+  <!--l. 178-->
+<p class="noindent" ><span 
+class="rm-lmssbx-10x-x-70">Author</span> <span 
+class="rm-lmssbx-10x-x-70">details</span> <a 
+ id="x1-9002r1"></a>
+  <!--l. 541-->
+<p class="noindent" ><sup class="textsuperscript"><span 
+class="rm-lmss-9">1</span></sup><span 
+class="rm-lmss-8x-x-87">School</span> <span 
+class="rm-lmss-8x-x-87">of</span> <span 
+class="rm-lmss-8x-x-87">Electrical</span> <span 
+class="rm-lmss-8x-x-87">and</span> <span 
+class="rm-lmss-8x-x-87">Computer</span> <span 
+class="rm-lmss-8x-x-87">Engineering,</span> <span 
+class="rm-lmss-8x-x-87">Shiraz</span> <span 
+class="rm-lmss-8x-x-87">University,</span> <span 
+class="rm-lmss-8x-x-87">Shiraz,</span> <span 
+class="rm-lmss-8x-x-87">Iran.</span> <a 
+ id="x1-9003r2"></a><sup class="textsuperscript"><span 
+class="rm-lmss-9">2</span></sup><span 
+class="rm-lmss-8x-x-87">Department</span> <span 
+class="rm-lmss-8x-x-87">of</span> <span 
+class="rm-lmss-8x-x-87">Electrical</span> <span 
+class="rm-lmss-8x-x-87">and</span> <span 
+class="rm-lmss-8x-x-87">Electronic</span> <span 
+class="rm-lmss-8x-x-87">Engineering,</span> <span 
+class="rm-lmss-8x-x-87">Nazarbayev</span> <span 
+class="rm-lmss-8x-x-87">University,</span> <span 
+class="rm-lmss-8x-x-87">Astana,</span> <span 
+class="rm-lmss-8x-x-87">Kazakhstan.</span>
+<div 
+class="colorbox" id="colorbox2"><div 
+class="abstract" 
+>
+<a 
+ id="Q1-1-1"></a>
+<!--l. 194--><p class="noindent" ><span 
+class="rm-lmssbx-10">Abstract</span>
+<!--l. 194--><p class="noindent" ><span 
+class="rm-lmssbx-10">Background</span><br 
+class="newline" /><span 
+class="rm-lmss-10">Time-Frequency</span>
+<span 
+class="rm-lmss-10">(TF)</span>
+<span 
+class="rm-lmss-10">analysis</span>
+<span 
+class="rm-lmss-10">has</span>
+<span 
+class="rm-lmss-10">been</span>
+<span 
+class="rm-lmss-10">extensively</span>
+<span 
+class="rm-lmss-10">used</span>
+<span 
+class="rm-lmss-10">for</span>
+<span 
+class="rm-lmss-10">the</span>
+<span 
+class="rm-lmss-10">analysis</span>
+<span 
+class="rm-lmss-10">of</span>
+<span 
+class="rm-lmss-10">non-stationary</span>
+<span 
+class="rm-lmss-10">numeric</span>
+<span 
+class="rm-lmss-10">signals</span>
+<span 
+class="rm-lmss-10">in</span>
+<span 
+class="rm-lmss-10">the</span>
+<span 
+class="rm-lmss-10">past</span>
+<span 
+class="rm-lmss-10">decades.</span>
+<span 
+class="rm-lmss-10">At</span>
+<span 
+class="rm-lmss-10">the</span>
+<span 
+class="rm-lmss-10">same</span>
+<span 
+class="rm-lmss-10">time,</span>
+<span 
+class="rm-lmss-10">recent</span>
+<span 
+class="rm-lmss-10">studies</span>
+<span 
+class="rm-lmss-10">have</span>
+<span 
+class="rm-lmss-10">statistically</span>
+<span 
+class="rm-lmss-10">confirmed</span>
+<span 
+class="rm-lmss-10">the</span>
+<span 
+class="rm-lmss-10">non-stationarity</span>
+<span 
+class="rm-lmss-10">of</span>
+<span 
+class="rm-lmss-10">genomic</span>
+<span 
+class="rm-lmss-10">non-numeric</span>
+<span 
+class="rm-lmss-10">sequences</span>
+<span 
+class="rm-lmss-10">and</span>
+<span 
+class="rm-lmss-10">suggested</span>
+<span 
+class="rm-lmss-10">the</span>
+<span 
+class="rm-lmss-10">use</span>
+<span 
+class="rm-lmss-10">of</span>
+<span 
+class="rm-lmss-10">non-stationary</span>
+<span 
+class="rm-lmss-10">analysis</span>
+<span 
+class="rm-lmss-10">for</span>
+<span 
+class="rm-lmss-10">these</span>
+<span 
+class="rm-lmss-10">sequences.</span>
+<span 
+class="rm-lmss-10">The</span>
+<span 
+class="rm-lmss-10">conventional</span>
+<span 
+class="rm-lmss-10">approach</span>
+<span 
+class="rm-lmss-10">to</span>
+<span 
+class="rm-lmss-10">analyze</span>
+<span 
+class="rm-lmss-10">non-numeric</span>
+<span 
+class="rm-lmss-10">genomic</span>
+<span 
+class="rm-lmss-10">sequences</span>
+<span 
+class="rm-lmss-10">using</span>
+<span 
+class="rm-lmss-10">techniques</span>
+<span 
+class="rm-lmss-10">specific</span>
+<span 
+class="rm-lmss-10">to</span>
+<span 
+class="rm-lmss-10">numerical</span>
+<span 
+class="rm-lmss-10">data</span>
+<span 
+class="rm-lmss-10">is</span>
+<span 
+class="rm-lmss-10">to</span>
+<span 
+class="rm-lmss-10">somehow</span>
+<span 
+class="rm-lmss-10">convert</span>
+<span 
+class="rm-lmss-10">non-numerical</span>
+<span 
+class="rm-lmss-10">data</span>
+<span 
+class="rm-lmss-10">into</span>
+<span 
+class="rm-lmss-10">numerical</span>
+<span 
+class="rm-lmss-10">values</span>
+<span 
+class="rm-lmss-10">in</span>
+<span 
+class="rm-lmss-10">and</span>
+<span 
+class="rm-lmss-10">then</span>
+<span 
+class="rm-lmss-10">apply</span>
+<span 
+class="rm-lmss-10">time</span>
+<span 
+class="rm-lmss-10">or</span>
+<span 
+class="rm-lmss-10">transform</span>
+<span 
+class="rm-lmss-10">domain</span>
+<span 
+class="rm-lmss-10">signal</span>
+<span 
+class="rm-lmss-10">processing</span>
+<span 
+class="rm-lmss-10">algorithms.</span>
+<span 
+class="rm-lmss-10">Nevertheless,</span>
+<span 
+class="rm-lmss-10">this</span>
+<span 
+class="rm-lmss-10">approach</span>
+<span 
+class="rm-lmss-10">raises</span>
+<span 
+class="rm-lmss-10">questions</span>
+<span 
+class="rm-lmss-10">regarding</span>
+<span 
+class="rm-lmss-10">the</span>
+<span 
+class="rm-lmss-10">relative</span>
+<span 
+class="rm-lmss-10">magnitudes</span>
+<span 
+class="rm-lmss-10">under</span>
+<span 
+class="rm-lmss-10">numeric</span>
+<span 
+class="rm-lmss-10">transforms,</span>
+<span 
+class="rm-lmss-10">which</span>
+<span 
+class="rm-lmss-10">can</span>
+<span 
+class="rm-lmss-10">potentially</span>
+<span 
+class="rm-lmss-10">lead</span>
+<span 
+class="rm-lmss-10">to</span>
+<span 
+class="rm-lmss-10">spurious</span>
+<span 
+class="rm-lmss-10">patterns</span>
+<span 
+class="rm-lmss-10">or</span>
+<span 
+class="rm-lmss-10">misinterpretation</span>
+<span 
+class="rm-lmss-10">of</span>
+<span 
+class="rm-lmss-10">results.</span>
+<br 
+class="newline" /><span 
+class="rm-lmssbx-10">Results</span><br 
+class="newline" /><span 
+class="rm-lmss-10">In</span>
+<span 
+class="rm-lmss-10">this</span>
+<span 
+class="rm-lmss-10">paper,</span>
+<span 
+class="rm-lmss-10">using</span>
+<span 
+class="rm-lmss-10">the</span>
+<span 
+class="rm-lmss-10">notion</span>
+<span 
+class="rm-lmss-10">of</span>
+<span 
+class="rm-lmss-10">interpretive</span>
+<span 
+class="rm-lmss-10">signal</span>
+<span 
+class="rm-lmss-10">processing</span>
+<span 
+class="rm-lmss-10">(ISP)</span>
+<span 
+class="rm-lmss-10">and</span>
+<span 
+class="rm-lmss-10">by</span>
+<span 
+class="rm-lmss-10">redefining</span>
+<span 
+class="rm-lmss-10">correlation</span>
+<span 
+class="rm-lmss-10">functions</span>
+<span 
+class="rm-lmss-10">for</span>
+<span 
+class="rm-lmss-10">non-numeric</span>
+<span 
+class="rm-lmss-10">sequences,</span>
+<span 
+class="rm-lmss-10">a</span>
+<span 
+class="rm-lmss-10">general</span>
+<span 
+class="rm-lmss-10">class</span>
+<span 
+class="rm-lmss-10">of</span>
+<span 
+class="rm-lmss-10">bilinear</span>
+<span 
+class="rm-lmss-10">TF</span>
+<span 
+class="rm-lmss-10">transforms</span>
+<span 
+class="rm-lmss-10">are</span>
+<span 
+class="rm-lmss-10">extended</span>
+<span 
+class="rm-lmss-10">and</span>
+<span 
+class="rm-lmss-10">applied</span>
+<span 
+class="rm-lmss-10">to</span>
+<span 
+class="rm-lmss-10">non-numerical</span>
+<span 
+class="rm-lmss-10">genomic</span>
+<span 
+class="rm-lmss-10">sequences.</span>
+<span 
+class="rm-lmss-10">The</span>
+<span 
+class="rm-lmss-10">technique</span>
+<span 
+class="rm-lmss-10">has</span>
+<span 
+class="rm-lmss-10">been</span>
+<span 
+class="rm-lmss-10">successfully</span>
+<span 
+class="rm-lmss-10">evaluated</span>
+<span 
+class="rm-lmss-10">on</span>
+<span 
+class="rm-lmss-10">synthetic</span>
+<span 
+class="rm-lmss-10">and</span>
+<span 
+class="rm-lmss-10">real</span>
+<span 
+class="rm-lmss-10">DNA</span>
+<span 
+class="rm-lmss-10">sequences.</span>
+<br 
+class="newline" /><span 
+class="rm-lmssbx-10">Conclusion</span>
+<br 
+class="newline" /><span 
+class="rm-lmss-10">The</span>
+<span 
+class="rm-lmss-10">proposed</span>
+<span 
+class="rm-lmss-10">framework</span>
+<span 
+class="rm-lmss-10">is</span>
+<span 
+class="rm-lmss-10">fairly</span>
+<span 
+class="rm-lmss-10">generic</span>
+<span 
+class="rm-lmss-10">and</span>
+<span 
+class="rm-lmss-10">is</span>
+<span 
+class="rm-lmss-10">believed</span>
+<span 
+class="rm-lmss-10">to</span>
+<span 
+class="rm-lmss-10">be</span>
+<span 
+class="rm-lmss-10">useful</span>
+<span 
+class="rm-lmss-10">for</span>
+<span 
+class="rm-lmss-10">extracting</span>
+<span 
+class="rm-lmss-10">quantitative</span>
+<span 
+class="rm-lmss-10">and</span>
+<span 
+class="rm-lmss-10">visual</span>
+<span 
+class="rm-lmss-10">information</span>
+<span 
+class="rm-lmss-10">regarding</span>
+<span 
+class="rm-lmss-10">local</span>
+<span 
+class="rm-lmss-10">and</span>
+<span 
+class="rm-lmss-10">global</span>
+<span 
+class="rm-lmss-10">periodicity,</span>
+<span 
+class="rm-lmss-10">symmetry,</span>
+<span 
+class="rm-lmss-10">(non-)</span>
+<span 
+class="rm-lmss-10">stationarity</span>
+<span 
+class="rm-lmss-10">and</span>
+<span 
+class="rm-lmss-10">spectral</span>
+<span 
+class="rm-lmss-10">color</span>
+<span 
+class="rm-lmss-10">of</span>
+<span 
+class="rm-lmss-10">genomic</span>
+<span 
+class="rm-lmss-10">sequences.</span>
+<span 
+class="rm-lmss-10">The</span>
+<span 
+class="rm-lmss-10">notion</span>
+<span 
+class="rm-lmss-10">of</span>
+<span 
+class="rm-lmss-10">interpretive</span>
+<span 
+class="rm-lmss-10">time-frequency</span>
+<span 
+class="rm-lmss-10">analysis</span>
+<span 
+class="rm-lmss-10">introduced</span>
+<span 
+class="rm-lmss-10">in</span>
+<span 
+class="rm-lmss-10">this</span>
+<span 
+class="rm-lmss-10">work</span>
+<span 
+class="rm-lmss-10">can</span>
+<span 
+class="rm-lmss-10">be</span>
+<span 
+class="rm-lmss-10">considered</span>
+<span 
+class="rm-lmss-10">as</span>
+<span 
+class="rm-lmss-10">the</span>
+<span 
+class="rm-lmss-10">first</span>
+<span 
+class="rm-lmss-10">step</span>
+<span 
+class="rm-lmss-10">towards</span>
+<span 
+class="rm-lmss-10">the</span>
+<span 
+class="rm-lmss-10">development</span>
+<span 
+class="rm-lmss-10">of</span>
+<span 
+class="rm-lmss-10">a</span>
+<span 
+class="rm-lmss-10">rigorous</span>
+<span 
+class="rm-lmss-10">mathematical</span>
+<span 
+class="rm-lmss-10">construct</span>
+<span 
+class="rm-lmss-10">for</span>
+<span 
+class="rm-lmss-10">genomic</span>
+<span 
+class="rm-lmss-10">signal</span>
+<span 
+class="rm-lmss-10">processing.</span>
+</div>
+<!--l. 211--><p class="noindent" ><span 
+class="rm-lmssbx-10">Keywords: </span><span 
+class="rm-lmss-10">Genomic</span>
+<span 
+class="rm-lmss-10">Signal</span>
+<span 
+class="rm-lmss-10">Processing;</span>
+<span 
+class="rm-lmss-10">Time-Frequency</span>
+<span 
+class="rm-lmss-10">Analysis;</span>
+<span 
+class="rm-lmss-10">Interpretive</span>
+<span 
+class="rm-lmss-10">Signal</span>
+<span 
+class="rm-lmss-10">Processing</span>                                                        </div>    
+                                                                     
+  <h3 class="sectionHead"><span class="titlemark">1  </span> <a 
+ id="x1-10001"></a>Introduction</h3>
+<!--l. 257--><p class="noindent" >The application of signal processing techniques in genomics has found a great deal of
+attention and applications in the past decade <span class="cite">[<a 
+href="#XAnastassiou2001">1</a>, <a 
+href="#XKakumaniAD10">2</a>, <a 
+href="#XAfreixo">3</a>, <a 
+href="#XVaidyanathan04therole">4</a>]</span>. Nevertheless, an important
+class of analytical tools in signal processing that have not been yet fully formulated in
+genomics is the class of joint time-frequency (TF) distributions and transforms. These
+are powerful mathematical tools with various applications in signal processing
+<span class="cite">[<a 
+href="#Xflandrin1999time">5</a>, <a 
+href="#XQian1999time">6</a>]</span>.
+<!--l. 259--><p class="indent" >  The major advantage of TF transforms and distributions over conventional Fourier
+analysis is to simultaneously retrieve the temporal (or spatial) and frequency domain
+structure of non-stationary data. In other words, while the temporal evolution of the
+frequency contents of a signal is lost in the conventional spectral estimation using the
+Fourier analysis, the TF gives a detailed view of such information for non-stationary
+signals. At the same time, several studies have statistically confirmed the non-stationarity
+of genomic sequences and suggested the use of non-stationary analysis for these
+sequences <span class="cite">[<a 
+href="#XBouaynaya2008">7</a>, <a 
+href="#XBouaynaya22008">8</a>, <a 
+href="#XZielinski2008">9</a>]</span>. There could be many potential applications by applying
+the TF transforms to genomic sequences. Nevertheless, the first step in this
+line of work is to be able to apply these transforms to non-numerical genomic
+sequences.
+<!--l. 261--><p class="indent" >  The conventional approach to analyze genomic sequences using techniques specific to
+numerical data is to convert non-numerical genomic data into numerical values in some
+way and then apply time or transform domain signal processing algorithms to the
+resulting numeric series <span class="cite">[<a 
+href="#XAnastassiou00">10</a>, <a 
+href="#XSussillo">11</a>]</span>. Despite the promising results achieved by these
+methods, the procedure of converting genomic data into numerical data has been the
+bottleneck for these techniques&#8212;there is no concrete one-to-one map between
+non-numeric data and the numeric domain. Moreover, the process of converting
+non-numeric data to numeric values, can have misleading outcomes. For instance, the
+genomic alphabet (A, G, C and T) <span 
+class="rm-lmri-10">is not an ordered set</span>. However, in mapping this
+alphabet to real values, the sequence is implicitly mapped to an ordered set, which raises
+expectations regarding their relative magnitudes under numeric transforms, resulting in
+misinterpretation of the processing results.
+<!--l. 263--><p class="indent" >  In <span class="cite">[<a 
+href="#Xhassani2012">12</a>]</span>, we introduced the notion of <span 
+class="rm-lmri-10">interpretive signal processing </span>(ISP) as a novel
+approach for extending signal processing algorithms to non-numerical data. ISP can be
+seen as a subset of the general notion of <span 
+class="rm-lmri-10">sequential pattern mining</span>, which has become a
+prominent topic in sequence data mining during recent years. In ISP, instead of coding
+non-numerical strings into numerical ones, the basic idea is to use the interpretations of
+conventional signal processing algorithms to reconstruct similar techniques that are
+directly applicable to non-numerical data. The notion of ISP is fairly general and may be
+used in various applications.
+<!--l. 265--><p class="indent" >  In this study, we employ ISP for applying a general class of TF transforms to analyze
+genomic sequences. As in real valued signals, the advantage of TF analysis over basic
+Fourier analysis is that it provides a means of analyzing both local and global patterns
+within a non-stationary sequence. Therefore, using TF transforms, local (yet
+significant) events which are commonly dominated by averaging in classical
+Fourier analysis can be identified within a sequence. As a proof-of-principle, we
+use the ISP-inspired TF analysis for detecting periodicities in coding regions    
+                                                                     
+and also detecting repetitive sub-sequences, also known as <span 
+class="rm-lmri-10">tandem repeats</span>. The
+length and period of such sequences have important biological implications and
+several methods have been presented in the past for detecting these sub-sequences
+<span class="cite">[<a 
+href="#Xbuchner2003">13</a>, <a 
+href="#XSussillo">11</a>, <a 
+href="#Xpop2008">14</a>]</span>.
+<!--l. 267--><p class="indent" >  The rest of the paper is organized as follows. In section <a 
+href="#x1-20002">2<!--tex4ht:ref: sec:tfanalysis --></a>, the basics of a general class
+of time-frequency transforms are reviewed. In section <a 
+href="#x1-30003">3<!--tex4ht:ref: sec:isp --></a>, the general idea of ISP is
+illustrated with a simple example. The extension of time-frequency transforms for
+non-numeric genomic data is presented in section <a 
+href="#x1-40004">4<!--tex4ht:ref: sec:tfgenomic --></a>, followed by some concluding remarks
+and future perspective of the work.
+<!--l. 272--><p class="noindent" >
+  <h3 class="sectionHead"><span class="titlemark">2  </span> <a 
+ id="x1-20002"></a>Joint Time-Frequency Analysis</h3>
+<!--l. 274--><p class="noindent" >We first review some general concepts of bilinear TF analysis that are later extended to
+non-numerical data.
+<!--l. 276--><p class="indent" >  Correlation is a primary concept of great value in most signal processing algorithms.
+The <span 
+class="rm-lmri-10">instantaneous cross-correlation </span>of the signals <span 
+class="lmmi-10">x</span>(<span 
+class="lmmi-10">t</span>) and <span 
+class="lmmi-10">y</span>(<span 
+class="lmmi-10">t</span>) is defined
+  <table 
+class="equation"><tr><td><a 
+ id="x1-2001r1"></a>
+  <center class="math-display" >
+<img 
+src="ISP0x.png" alt="rxy(t,τ) = x(t- τ-)y*(t+ τ-)
+              2       2
+" class="math-display" ></center></td><td class="equation-label">(1)</td></tr></table>
+<!--l. 280--><p class="nopar" >
+which for real-valued signals, according to the explanations in Section <a 
+href="#x1-30003">3<!--tex4ht:ref: sec:isp --></a>, is a simple
+measure of similarity of <span 
+class="lmmi-10">x</span>(<span 
+class="lmmi-10">t </span><span 
+class="lmsy-10">- </span><span 
+class="lmmi-10">τ∕</span>2) and <span 
+class="lmmi-10">y</span>(<span 
+class="lmmi-10">t </span>+ <span 
+class="lmmi-10">τ∕</span>2). In fact, in (<a 
+href="#x1-2001r1">1<!--tex4ht:ref: eq:instcrosscorr --></a>), the multiplication
+operator is used to measure the similarity of its operands. In Section <a 
+href="#x1-40004">4<!--tex4ht:ref: sec:tfgenomic --></a>, we will show how
+this product can be replaced by the values of the similarity matrix of the genomic
+&#8220;alphabets&#8221;.
+<!--l. 283--><p class="indent" >  By summing <span 
+class="lmmi-10">r</span><sub><span 
+class="lmmi-7">xy</span></sub>(<span 
+class="lmmi-10">t,τ</span>) (or integrating for continuous-time signals), the <span 
+class="rm-lmri-10">cross-correlation</span>
+<span 
+class="rm-lmri-10">function </span>is achieved.
+  <table 
+class="equation"><tr><td><a 
+ id="x1-2002r2"></a>
+  <center class="math-display" >
+<img 
+src="ISP1x.png" alt="          ∞
+         ∑
+Rxy (τ) = t=- ∞rxy(t,τ)
+" class="math-display" ></center></td><td class="equation-label">(2)</td></tr></table>
+<!--l. 287--><p class="nopar" >
+This function is a measure of the <span 
+class="rm-lmri-10">average similarity </span>of the two signals with <span 
+class="lmmi-10">τ</span>-samples of
+time lag. Alternatively, by summing <span 
+class="lmmi-10">r</span><sub><span 
+class="lmmi-7">xy</span></sub>(<span 
+class="lmmi-10">t,τ</span>) over <span 
+class="lmmi-10">τ</span>, a measure of <span 
+class="rm-lmri-10">signal symmetry </span>is
+achieved.
+  <table 
+class="equation"><tr><td><a 
+ id="x1-2003r3"></a>
+  <center class="math-display" >
+<img 
+src="ISP2x.png" alt="        ∑∞
+sxy(t) =     rxy(t,τ)
+       τ=-∞
+" class="math-display" ></center></td><td class="equation-label">(3)</td></tr></table>
+<!--l. 292--><p class="nopar" >
+Taking the Fourier transform of <span 
+class="lmmi-10">R</span><sub><span 
+class="lmmi-7">xy</span></sub>(<span 
+class="lmmi-10">τ</span>) with respect to <span 
+class="lmmi-10">τ</span>, results in the <span 
+class="rm-lmri-10">cross-spectrum</span>.
+  <table 
+class="equation"><tr><td><a 
+ id="x1-2004r4"></a>
+  <center class="math-display" >
+<img 
+src="ISP3x.png" alt="Sxy(f ) = F τ→f {Rxy(τ)}
+" class="math-display" ></center></td><td class="equation-label">(4)</td></tr></table>
+<!--l. 302--><p class="nopar" >
+where <span 
+class="rsfs-10"><img 
+src="rsfs10-46.png" alt="F" class="10x-x-46" /> </span>(<span 
+class="lmsy-10">⋅</span>) represents the Fourier transform.
+<!--l. 304--><p class="indent" >  The <span 
+class="rm-lmri-10">cross-Wigner-Ville </span>is the Fourier transforms of <span 
+class="lmmi-10">r</span><sub><span 
+class="lmmi-7">xy</span></sub>(<span 
+class="lmmi-10">t,τ</span>) with respect to
+<span 
+class="lmmi-10">τ</span>.
+  <table 
+class="equation"><tr><td><a 
+ id="x1-2005r5"></a>
+  <center class="math-display" >
+<img 
+src="ISP4x.png" alt="W  Vxy(t,f) = F τ→f{rxy(t,τ)}
+" class="math-display" ></center></td><td class="equation-label">(5)</td></tr></table>
+<!--l. 308--><p class="nopar" >
+The Wigner-Ville (WV) transform can be interpreted as the time-variant extension of
+(<a 
+href="#x1-2004r4">4<!--tex4ht:ref: eq:spectrum --></a>), which is specifically useful for the spectral study of non-stationary signals.
+<!--l. 310--><p class="indent" >  The last TF transform that we introduce is the <span 
+class="rm-lmri-10">ambiguity function </span>(AF), defined as
+follows
+  <table 
+class="equation"><tr><td><a 
+ id="x1-2006r6"></a>
+  <center class="math-display" >
+<img 
+src="ISP5x.png" alt="AFxy(η,τ) = Ft→ η{rxy(t,τ)}
+" class="math-display" ></center></td><td class="equation-label">(6)</td></tr></table>
+<!--l. 314--><p class="nopar" >
+The ambiguity function is basically a <span 
+class="rm-lmri-10">time-frequency correlation </span>with a maximum at the
+origin <span class="cite">[<a 
+href="#Xflandrin1999time">5</a>]</span>. It has been shown that the ambiguity function can be used to discriminate
+signals with different spectral color and temporal correlation <span class="cite">[<a 
+href="#Xflandrin1999time">5</a>]</span>. The relationship
+between the instantaneous correlation and the other bilinear transforms is summarized in
+Figure <a 
+href="#x1-20071">1<!--tex4ht:ref: fig:TFTransforms --></a>.
+<!--l. 316--><p class="indent" >  <hr class="figure"><div class="figure" 
+>
+                                                                     
+                                                                     
+<a 
+ id="x1-20092"></a>
+                                                                     
+                                                                     
+<div 
+class="colorbox" id="colorbox3"><!--l. 329--><p class="noindent" ><img 
+src="ISP6x.png" alt="PIC" class="graphics" width="541.5pt" height="243.39491pt" ><!--tex4ht:graphics  
+name="ISP6x.png" src="pics/TFTransformsFig.eps"  
+-->
+<br /> <div class="caption" 
+><span class="id">Figure 1: </span><span  
+class="content">Summary of bilinear Time-Frequency transforms inter-relationship</span></div><!--tex4ht:label?: x1-20071 -->  </div>
+                                                                     
+                                                                     
+<!--l. 332--><p class="indent" >  </div><hr class="endfigure">
+<!--l. 334--><p class="indent" >  Due to the <span 
+class="rm-lmri-10">bilinear form </span>of the WV transform (containing the product of <span 
+class="lmmi-10">x</span>(<span 
+class="lmsy-10">⋅</span>) and <span 
+class="lmmi-10">y</span>(<span 
+class="lmsy-10">⋅</span>)),
+undesired cross-terms appear in the time-frequency plane. The cross-terms can be
+attenuated by filtering the WV transform using a TF <span 
+class="rm-lmri-10">kernel </span><span 
+class="lmmi-10">ϕ</span>(<span 
+class="lmsy-10">⋅</span><span 
+class="lmmi-10">,</span><span 
+class="lmsy-10">⋅</span>), which results in the
+following general form
+  <table 
+class="equation"><tr><td><a 
+ id="x1-2008r7"></a>
+  <center class="math-display" >
+<img 
+src="ISP7x.png" alt="ρxy(t,f) = W Vxy(t,f)**ϕ(t,f)
+" class="math-display" ></center></td><td class="equation-label">(7)</td></tr></table>
+<!--l. 338--><p class="nopar" >
+where <span 
+class="lmsy-10">** </span>is the two-dimensional convolution operator. Equation (<a 
+href="#x1-2005r5">5<!--tex4ht:ref: eq:wignerville --></a>) is the most general
+form of a general class of TF transforms (or TF <span 
+class="rm-lmri-10">distributions</span>) known as the
+<span 
+class="rm-lmri-10">Cohen class </span><span class="cite">[<a 
+href="#Xcohen1995">15</a>]</span>. The properties of these distributions are controlled by <span 
+class="lmmi-10">ϕ</span>(<span 
+class="lmmi-10">t,f</span>).
+According to Figure <a 
+href="#x1-20071">1<!--tex4ht:ref: fig:TFTransforms --></a>, <span 
+class="lmmi-10">ϕ</span>(<span 
+class="lmmi-10">t,f</span>) may also be applied to the TF transform in the
+Ambiguity plane, where it takes a multiplicative form rather than two-dimensional
+convolution.
+<!--l. 341--><p class="indent" >  Equations (<a 
+href="#x1-2001r1">1<!--tex4ht:ref: eq:instcrosscorr --></a>)-(<a 
+href="#x1-2008r7">7<!--tex4ht:ref: eq:smoothedwignerville --></a>) can be calculated for a single signal by setting <span 
+class="lmmi-10">y</span>(<span 
+class="lmmi-10">t</span>) = <span 
+class="lmmi-10">x</span>(<span 
+class="lmmi-10">t</span>), which
+gives the similarity of a signal with its time-lagged variants in the time and frequency
+domain.
+<!--l. 343--><p class="indent" >  To illustrate the application of the introduced TF transforms, we consider a sample
+segment of the signal <span 
+class="lmmi-10">x</span>(<span 
+class="lmmi-10">t</span>) = <span 
+class="lmmi-10">y</span>(<span 
+class="lmmi-10">t</span>) consisting of a chirp and two Gaussian signals <span class="cite">[<a 
+href="#Xtftb">16</a>]</span>,
+shown in Figure <a 
+href="#x1-20092">2<!--tex4ht:ref: fig:SampleSignal --></a>. The results of (<a 
+href="#x1-2001r1">1<!--tex4ht:ref: eq:instcrosscorr --></a>)-(<a 
+href="#x1-2006r6">6<!--tex4ht:ref: eq:ambiguity --></a>) calculated for this signal are shown in Figure <a 
+href="#x1-20092">2<!--tex4ht:ref: fig:SampleSignal --></a>.
+To understand the significance of TF analysis, compare the spectrum of the signal in
+Figure <a 
+href="#x1-20092">2<!--tex4ht:ref: fig:SampleSignal --></a> (g) with the WV distribution of this signal in Figure <a 
+href="#x1-20092">2<!--tex4ht:ref: fig:SampleSignal --></a> (f). As we can see, the
+evolution in time of the frequency content of the signal is totally lost in Figure <a 
+href="#x1-20092">2<!--tex4ht:ref: fig:SampleSignal --></a> (g).
+However, one can trace variations in the spectral content as a function of time (sample)
+in Figure <a 
+href="#x1-20092">2<!--tex4ht:ref: fig:SampleSignal --></a> (f). For example, the chirp is represented by a relatively wide-band signal,
+whose (normalized) frequency content is decreasing from 0.4 to 0.1 around time points 20
+to 200.
+<!--l. 344--><p class="indent" >  <hr class="figure"><div class="figure" 
+>
+                                                                     
+                                                                     
+<a 
+ id="x1-60033"></a>
+                                                                     
+                                                                     
+                                                                     
+                                                                     
+<div 
+class="colorbox" id="colorbox4"><!--l. 346--><p class="noindent" ><img 
+src="ISP8x.png" alt="PIC" class="graphics" width="541.5pt" height="586.69258pt" ><!--tex4ht:graphics  
+name="ISP8x.png" src="pics/numeric.eps"  
+-->
+<br /> <div class="caption" 
+><span class="id">Figure 2: </span><span  
+class="content">(a) A sample signal <span 
+class="lmmi-10">x</span>(<span 
+class="lmmi-10">t</span>), (b) <span 
+class="lmmi-10">S</span><sub><span 
+class="lmmi-7">xx</span></sub>(<span 
+class="lmmi-10">t</span>) showing the local symmetry of
+<span 
+class="lmmi-10">x</span>(<span 
+class="lmmi-10">t</span>), (c) the ambiguity plane, (d) the instantaneous auto-correlation, illustrating
+the similarity of <span 
+class="lmmi-10">x</span>(<span 
+class="lmmi-10">t</span>) with its time lag (e) the auto-correlation function with its
+maximum peak at <span 
+class="lmmi-10">τ </span>= 0 (f) the WV transform showing the spectral properties
+of <span 
+class="lmmi-10">x</span>(<span 
+class="lmmi-10">t</span>) versus spatial samples (g) the spectrum of <span 
+class="lmmi-10">x</span>(<span 
+class="lmmi-10">t</span>).</span></div><!--tex4ht:label?: x1-20092 -->                     </div>  
+                                                                     
+                                                                     
+                                                                     
+<!--l. 349--><p class="indent" >  </div><hr class="endfigure">
+  <h3 class="sectionHead"><span class="titlemark">3  </span> <a 
+ id="x1-30003"></a>Interpretive Signal Processing</h3>
+<!--l. 353--><p class="noindent" >All practical signal processing algorithms have some intuitive interpretation besides their
+mathematical formulation. Let us illustrate the idea with a simple example: it is well
+known that the <span 
+class="rm-lmri-10">inner product </span>of discrete-time real signals <span 
+class="lmmi-10">x</span>(<span 
+class="lmmi-10">t</span>) and <span 
+class="lmmi-10">y</span>(<span 
+class="lmmi-10">t</span>) is mathematically
+defined as follows
+  <table 
+class="equation"><tr><td><a 
+ id="x1-3001r8"></a>
+  <center class="math-display" >
+<img 
+src="ISP9x.png" alt="             ∞
+⟨x(t),y(t)⟩ = ∑   x(t)y(t)
+           t=-∞
+" class="math-display" ></center></td><td class="equation-label">(8)</td></tr></table>
+<!--l. 357--><p class="nopar" >
+In (<a 
+href="#x1-3001r8">8<!--tex4ht:ref: eq:innerproduct --></a>), whenever <span 
+class="lmmi-10">x</span>(<span 
+class="lmmi-10">t</span>) and <span 
+class="lmmi-10">y</span>(<span 
+class="lmmi-10">t</span>) have the same sign (both positive or negative), a positive
+value is added to the summation; while when they differ in sign a negative value is added.
+Therefore, for zero-mean signals (which have both positive and negative values), if the
+inner product is close to zero, one can conclude that the two signals do not
+have a similar pattern, while a great absolute value of the inner product is an
+indication of average &#8220;co-variance&#8221; or similarity of the two signals. In fact, the
+multiplication operator in (<a 
+href="#x1-3001r8">8<!--tex4ht:ref: eq:innerproduct --></a>), provides a measure of point-wise similarity, while the
+summation gives the average behavior of this similarity. This basic interpretation
+has led to the definition of a hand full of other measures of signal co-variance.
+For instance, one may subtract the mean values of <span 
+class="lmmi-10">x</span>(<span 
+class="lmmi-10">t</span>) and <span 
+class="lmmi-10">y</span>(<span 
+class="lmmi-10">t</span>) to centralize
+the data (when the mean values do not convey information), or to normalize
+it by the square roots of the energies of <span 
+class="lmmi-10">x</span>(<span 
+class="lmmi-10">t</span>) and <span 
+class="lmmi-10">y</span>(<span 
+class="lmmi-10">t</span>), in order to make the
+inner product dimensionless and to normalize it between -1 and +1. For certain
+applications, researchers have replaced the point-wise product of <span 
+class="lmmi-10">x</span>(<span 
+class="lmmi-10">t</span>)<span 
+class="lmmi-10">y</span>(<span 
+class="lmmi-10">t</span>) by
+other measures of similarity, like sign(<span 
+class="lmmi-10">x</span>(<span 
+class="lmmi-10">t</span>)<span 
+class="lmmi-10">y</span>(<span 
+class="lmmi-10">t</span>)) (cf. <span class="cite">[<a 
+href="#XTheis2010">17</a>]</span>). We can see that while
+the &#8220;inner product as a measure of signal similarity&#8221; is a common property of
+various forms of these definitions, employing the appropriate form hinges on the
+application.
+<!--l. 360--><p class="indent" >  Herein, we refer to the procedure of reforming signal processing algorithms based on
+their interpretation, as <span 
+class="rm-lmri-10">interpretive signal processing </span>(ISP). In <span class="cite">[<a 
+href="#Xhassani2012">12</a>]</span>, we used the notion of
+ISP to apply <span 
+class="rm-lmri-10">matched filters </span>in genomic signal processing. We show how this procedure
+helps us reformulate the Cohen class of time-frequency transforms for genomic sequence
+data.                                                                 
+                                                                     
+  <h3 class="sectionHead"><span class="titlemark">4  </span> <a 
+ id="x1-40004"></a>Extending the Time-Frequency Analysis to Genomic Sequences</h3>
+<!--l. 364--><p class="noindent" >As shown in Figure <a 
+href="#x1-20071">1<!--tex4ht:ref: fig:TFTransforms --></a>, the core of all bilinear transforms is the instantaneous cross- or
+auto-correlation. In order to extend TF transforms to non-numeric genomic sequence
+data, <span 
+class="rm-lmri-10">we propose to replace the product of </span><span 
+class="lmmi-10">x</span>(<span 
+class="lmsy-10">⋅</span>) <span 
+class="rm-lmri-10">and </span><span 
+class="lmmi-10">y</span>(<span 
+class="lmsy-10">⋅</span>) <span 
+class="rm-lmri-10">in </span><span 
+class="lmmi-10">r</span><sub><span 
+class="lmmi-7">xy</span></sub>(<span 
+class="lmmi-10">t,τ</span>) <span 
+class="rm-lmri-10">with the similarity</span>
+<span 
+class="rm-lmri-10">matrix entries of genomic sequences</span>. This idea is based on the interpretation of the
+product as a measure of similarity. Since a DNA sequence consists of four nucleotides,
+Adenine, Cytosine, Guanine, and Thymine, denoted by A, C, G, and T, respectively,
+a possible choice of the similarity matrix is the identity matrix represented
+as
+  <table 
+class="equation"><tr><td><a 
+ id="x1-4001r9"></a>
+  <center class="math-display" >
+<img 
+src="ISP10x.png" alt="       A  C  G  T
+    A( 1  0  0  0)
+     |           |
+S = C|| 0  1  0  0||
+    G( 0  0  1  0)
+    T  0  0  0  1
+" class="math-display" ></center></td><td class="equation-label">(9)</td></tr></table>
+<!--l. 383--><p class="nopar" >
+which indicates that each of the DNA nucleotides only resembles itself. In practice, based
+on experimental statistics, a bioinformatician may choose non-zero values for the
+off-diagonal entries or values smaller than one for the diagonal entries, indicating the
+probability of base-pair mutation at a specific locus. Moreover, in order to analyze a
+specific nucleotide and neglect others, all irrelevant entries of the matrix can be set to
+zero, which results in selective frequency or selective pattern analysis for DNA
+sequences. For proteins sequences, one may use BLOSUM62 and PAM250 matrices
+<span class="cite">[<a 
+href="#Xpevsner2009bioinformatics">18</a>]</span>.
+<!--l. 386--><p class="indent" >  Since all bilinear transforms contain the product of two terms, the proposed approach
+is an indirect means of mapping non-numeric sequences to numeric values, which
+is guaranteed to serve as a similarity measure (by definition), and does not
+suffer from the <span 
+class="rm-lmri-10">ordering </span>issue in previous mapping techniques (as noted in the
+introduction).
+  <h3 class="sectionHead"><span class="titlemark">5  </span> <a 
+ id="x1-50005"></a>Case Studies</h3>
+<!--l. 389--><p class="noindent" >Before applying the method to real DNA and protein sequences, let us consider a
+synthetic sequence for illustration.                                        
+                                                                     
+  <h4 class="subsectionHead"><span class="titlemark">5.1  </span> <a 
+ id="x1-60005.1"></a>A Synthetic DNA Sequence</h4>
+<!--l. 392--><p class="noindent" >For illustration, consider the following synthetic periodic DNA sequence, with period 4
+(<span 
+class="rm-lmtt-10">ACGT</span>) and length 1000.
+  <table 
+class="equation"><tr><td><a 
+ id="x1-6001r10"></a>
+  <center class="math-display" >
+<img 
+src="ISP11x.png" alt="x0[n] = ⋅⋅⋅ACGTACGTACGTACGT⋅⋅⋅
+" class="math-display" ></center></td><td class="equation-label">(10)</td></tr></table>
+<!--l. 397--><p class="nopar" >
+Real DNA sequences are never fully periodic. In order to make the sequence more
+realistic, we add some random changes (noise) to the sequence, by random substitutions
+of some nucleotides.
+  <table 
+class="equation"><tr><td><a 
+ id="x1-6002r11"></a>
+  <center class="math-display" >
+<img 
+src="ISP12x.png" alt="x[n] = ⋅⋅⋅AGGTTCGTACGAACCT⋅⋅⋅
+" class="math-display" ></center></td><td class="equation-label">(11)</td></tr></table>
+<!--l. 403--><p class="nopar" >
+Using the trivial similarity matrix in (<a 
+href="#x1-4001r9">9<!--tex4ht:ref: eq:simmatrix --></a>), equations (<a 
+href="#x1-2002r2">2<!--tex4ht:ref: eq:corrfunction --></a>)-(<a 
+href="#x1-2006r6">6<!--tex4ht:ref: eq:ambiguity --></a>) can be calculated
+for this nucleotide sequence using (<a 
+href="#x1-2001r1">1<!--tex4ht:ref: eq:instcrosscorr --></a>). The results are summarized in Figure
+<a 
+href="#x1-60033">3<!--tex4ht:ref: fig:TFPsuedoPeriodic --></a>.
+<!--l. 406--><p class="indent" >  <hr class="figure"><div class="figure" 
+>
+                                                                     
+                                                                     
+<a 
+ id="x1-70044"></a>
+                                                                     
+                                                                     
+                                                                     
+                                                                     
+<div 
+class="colorbox" id="colorbox5"><!--l. 408--><p class="noindent" ><img 
+src="ISP13x.png" alt="PIC" class="graphics" width="541.5pt" height="567.60556pt" ><!--tex4ht:graphics  
+name="ISP13x.png" src="pics/TFPsuedoPeriodic.eps"  
+-->
+<br /> <div class="caption" 
+><span class="id">Figure 3: </span><span  
+class="content">Results of (<a 
+href="#x1-2001r1">1<!--tex4ht:ref: eq:instcrosscorr --></a>)-(<a 
+href="#x1-2006r6">6<!--tex4ht:ref: eq:ambiguity --></a>) for the synthetic DNA sequence in (<a 
+href="#x1-6002r11">11<!--tex4ht:ref: eq:xndna --></a>). (a) The
+symmetry function using (<a 
+href="#x1-2003r3">3<!--tex4ht:ref: eq:symmfunction --></a>). (b) The ambiguity function using (<a 
+href="#x1-2006r6">6<!--tex4ht:ref: eq:ambiguity --></a>), showing
+the  stationarity  and  spectral  color  of  the  sequence.  (c)  The  instantaneous
+auto-correlation using (<a 
+href="#x1-2001r1">1<!--tex4ht:ref: eq:instcrosscorr --></a>), representing the similarity of the sequence with its
+time lag nucleotides. (d) The auto-correlation of the sequence using (<a 
+href="#x1-2002r2">2<!--tex4ht:ref: eq:corrfunction --></a>), with
+a maximum peak at <span 
+class="lmmi-10">τ  </span>= 0. (e) The WV transform using (<a 
+href="#x1-2005r5">5<!--tex4ht:ref: eq:wignerville --></a>), indicating the
+time-frequency properties of the sequence. (f) The spectrum using (<a 
+href="#x1-2004r4">4<!--tex4ht:ref: eq:spectrum --></a>), which
+shows the global spectral properties for the sequence.</span></div><!--tex4ht:label?: x1-60033 -->                      </div>  
+                                                                     
+                                                                     
+                                                                     
+<!--l. 411--><p class="indent" >  </div><hr class="endfigure">
+<!--l. 412--><p class="indent" >  Part (e) in Figure <a 
+href="#x1-60033">3<!--tex4ht:ref: fig:TFPsuedoPeriodic --></a> shows the WV plane for the noisy synthetic sequence in (<a 
+href="#x1-6002r11">11<!--tex4ht:ref: eq:xndna --></a>).
+We can clearly see that the pseudo-periodicity of the sequence has led into a
+horizontal line at 0.25 (normalized frequency) in this figure, which is equivalent
+to a periodicity of 1/0.25 = 4 samples. Also, this pseudo-periodicity causes a
+peak in part (f), which shows the global spectral properties of the signal. It
+has been shown that for stationary and temporally correlated signals (i.e., a
+colored spectrum), most of the ambiguity function&#8217;s energy is spread in the <span 
+class="lmmi-10">τ</span>
+direction around <span 
+class="lmmi-10">η </span>= 0 <span class="cite">[<a 
+href="#Xflandrin1999time">5</a>]</span>. This explains the ambiguity function form of our
+synthetic periodic sequence, which is stationary over time. More examples will be
+shown for real sequences in the next section. The effect of the correlation lag <span 
+class="lmmi-10">τ</span>
+is seen in Figure <a 
+href="#x1-60033">3<!--tex4ht:ref: fig:TFPsuedoPeriodic --></a> (c), where we can see that due to the periodicity of our
+synthetic sequence, correlations exist between near (small <span 
+class="lmmi-10">τ</span>) and far samples (large
+<span 
+class="lmmi-10">τ</span>).
+  <h4 class="subsectionHead"><span class="titlemark">5.2  </span> <a 
+ id="x1-70005.2"></a>A Real DNA Sequence Case Study</h4>
+<!--l. 425--><p class="noindent" >The proposed framework has been tested on several DNA sequences.
+As a first case study, we apply the method to a real DNA sequence
+adopted from the National Center for Biotechnology Information
+(NCBI)<span class="footnote-mark"><a 
+href="ISP2.html#fn1x0"><sup class="textsuperscript">[1]</sup></a></span><a 
+ id="x1-7001f1"></a> 
+database. Figure <a 
+href="#x1-70044">4<!--tex4ht:ref: fig:tf --></a> illustrates equations (<a 
+href="#x1-2001r1">1<!--tex4ht:ref: eq:instcrosscorr --></a>)-(<a 
+href="#x1-2006r6">6<!--tex4ht:ref: eq:ambiguity --></a>) for the DNA sequence with the accession
+number <span 
+class="rm-lmtt-10">FJ807392.1 </span>(Figure <a 
+href="#x1-7002r1">4(a)<!--tex4ht:ref: subfig:tfreal --></a>) adopted from <span class="cite">[<a 
+href="#XGenBank:FJ807392.1">19</a>]</span>, and a random generated DNA
+sequence (Figure <a 
+href="#x1-7003r2">4(b)<!--tex4ht:ref: subfig:tfrandom --></a>).
+<!--l. 426--><p class="indent" >  For comparison, the results in Figure <a 
+href="#x1-7002r1">4(a)<!--tex4ht:ref: subfig:tfreal --></a> can be compared with similar results
+obtained from a totally random synthetic DNA sequence of the same length in Figure
+<a 
+href="#x1-7003r2">4(b)<!--tex4ht:ref: subfig:tfrandom --></a>. It is seen that there is no specific structure in the time-frequency transforms of the
+random sequence, while there are clear structures indicating local periodicities,
+nonstationarities and spectral color in the real DNA sequence.
+                                                                     
+                                                                     
+<!--l. 433--><p class="indent" >  <a 
+ id="x1-70055"></a><hr class="float"><div class="float" 
+>
+                                                                     
+                                                                     
+                                                                     
+                                                                     
+<div 
+class="colorbox" id="colorbox6"><a 
+ id="x1-7002r1"></a>
+<div class="subfigure"><table><tr><td style="text-align:left"><img 
+src="ISP14x.png" alt="PIC" class="graphics" width="361.0pt" height="378.37622pt" ><!--tex4ht:graphics  
+name="ISP14x.png" src="pics/TFReal.eps"  
+-->
+                                   <div class="subfigcaption"><span 
+class="rm-lmr-8">(a) </span></div>                                   </td></tr></table></div>
+<a 
+ id="x1-7003r2"></a><div class="subfigure"><table><tr><td style="text-align:left"><img 
+src="ISP15x.png" alt="PIC" class="graphics" width="361.0pt" height="378.37622pt" ><!--tex4ht:graphics  
+name="ISP15x.png" src="pics/TFRandom.eps"  
+-->
+                                   <div class="subfigcaption"><span 
+class="rm-lmr-8">(b) </span></div>                                   </td></tr></table></div>
+<br /> <div class="caption" 
+><span class="id">Figure 4: </span><span  
+class="content">Results of (<a 
+href="#x1-2001r1">1<!--tex4ht:ref: eq:instcrosscorr --></a>)-(<a 
+href="#x1-2006r6">6<!--tex4ht:ref: eq:ambiguity --></a>) for (a) the DNA sequence with the accession number
+<span 
+class="rm-lmtt-10">FJ807392.1 </span>and (b) a totally random synthetic DNA sequence. The identity
+matrix is used as the similarity matrix for computing these functions. In each
+figure: (a) The symmetry function from (<a 
+href="#x1-2003r3">3<!--tex4ht:ref: eq:symmfunction --></a>). (b) The ambiguity function from (<a 
+href="#x1-2006r6">6<!--tex4ht:ref: eq:ambiguity --></a>)
+showing the stationarity and spectral color of the sequence. (c) The instantaneous
+auto-correlation using (<a 
+href="#x1-2001r1">1<!--tex4ht:ref: eq:instcrosscorr --></a>) representing the similarity of the sequence with its
+time lag nucleotides. (d) The auto-correlation function of the sequence using (<a 
+href="#x1-2002r2">2<!--tex4ht:ref: eq:corrfunction --></a>),
+with a maximum peak at <span 
+class="lmmi-10">τ </span>= 0. (e) The WV transform using (<a 
+href="#x1-2005r5">5<!--tex4ht:ref: eq:wignerville --></a>), indicating
+the time-frequency properties of the sequence. (f) The spectrum using (<a 
+href="#x1-2004r4">4<!--tex4ht:ref: eq:spectrum --></a>), which
+shows the global spectral properties for the sequence.</span></div><!--tex4ht:label?: x1-70044 -->                      </div>  
+                                                                     
+                                                                     
+                                                                     
+  </div><hr class="endfloat" />
+<!--l. 434--><p class="indent" >  According to NCBI, <span 
+class="rm-lmtt-10">FJ807392.1 </span>is a <span 
+class="rm-lmri-10">Helice tientsinensis microsatellite </span><span 
+class="rm-lmtti-10">TJH03 </span><span 
+class="rm-lmri-10">sequence</span>,
+which is a repetitive sequence with 282 base nucleotide pairs. Figure <a 
+href="#x1-70055">5<!--tex4ht:ref: fig:wvdzoom --></a> is a zoom-in of the
+WV plane for this sequence, from which its repetitive sub-sequences can be well seen and
+detected at 0.25 and 0.02 normalized frequencies, corresponding to both short term and
+long term periodicities in the sequence.
+<!--l. 436--><p class="indent" >  Moreover, due to the repetitive structure of this sequence, it can be considered a
+stationary and colored sequence, which explains the ambiguity plane structure in Figure
+<a 
+href="#x1-7002r1">4(a)<!--tex4ht:ref: subfig:tfreal --></a> part (b), which is concentrated around <span 
+class="lmmi-10">η </span>= 0 and spread in the direction of <span 
+class="lmmi-10">τ</span>.
+Therefore, the proposed ambiguity plane can be used to study the spectral and
+stationarity properties of DNA sequences. This is especially useful for feature extraction
+and classification of DNA and protein sequences.
+                                                                     
+                                                                     
+<!--l. 445--><p class="indent" >  <a 
+ id="x1-80036"></a><hr class="float"><div class="float" 
+>
+                                                                     
+                                                                     
+<div 
+class="colorbox" id="colorbox7"><!--l. 441--><p class="noindent" ><img 
+src="ISP16x.png" alt="PIC" class="graphics" width="541.5pt" height="188.90411pt" ><!--tex4ht:graphics  
+name="ISP16x.png" src="pics/wvd3.eps"  
+-->
+<br /> <div class="caption" 
+><span class="id">Figure 5: </span><span  
+class="content">The WV transform for the DNA sequence in Figure <a 
+href="#x1-7002r1">4(a)<!--tex4ht:ref: subfig:tfreal --></a> and its
+corresponding DNA sub-sequence. Note the local repetitive structure in the DNA
+sequence and its corresponding pattern in the WV plane.</span></div><!--tex4ht:label?: x1-70055 -->                   </div>
+                                                                     
+                                                                     
+  </div><hr class="endfloat" />
+  <h4 class="subsectionHead"><span class="titlemark">5.3  </span> <a 
+ id="x1-80005.3"></a>Identification of Protein Coding DNA Regions</h4>
+<!--l. 454--><p class="noindent" >As a second case study, the proposed method is compared with a well known method
+called <span 
+class="rm-lmri-10">indicator sequences</span>, for analyzing DNA sequences <span class="cite">[<a 
+href="#XTiwari01061997">20</a>, <a 
+href="#XAnastassiou2001">1</a>]</span>. Accordingly, indicator
+sequences of a DNA sequence are four binary sequences corresponding to the four
+different nucleotides. Each sample in the indicator sequence specifies the presence of the
+nucleotide at that position. The following is an example of a DNA sequence and its
+indicator sequences:
+  <table 
+class="equation"><tr><td><a 
+ id="x1-8001r12"></a>
+  <center class="math-display" >
+<img 
+src="ISP17x.png" alt="DNA  sequence:           A  G   C  C  T  G   A
+Indicator sequence uA[n]:   1  0   0  0  0  0   1
+Indicator sequence uC[n]:   0  0   1  1  0  0   0
+Indicator sequence uG[n]:   0  1   0  0  0  1   0
+Indicator sequence u [n]:   0  0   0  0  1  0   0
+                 T
+" class="math-display" ></center></td><td class="equation-label">(12)</td></tr></table>
+<!--l. 465--><p class="nopar" >
+According to <span class="cite">[<a 
+href="#XTiwari01061997">20</a>]</span>, the indicator sequence can be used to define the DNA spectrum, as
+follows:
+  <table 
+class="equation"><tr><td><a 
+ id="x1-8002r13"></a>
+  <center class="math-display" >
+<img 
+src="ISP18x.png" alt="S[k] = |UA [k]|2 + |UC[k]|2 + |UG[k]|2 + |UT[k]|2
+" class="math-display" ></center></td><td class="equation-label">(13)</td></tr></table>
+<!--l. 471--><p class="nopar" >
+where <span 
+class="lmmi-10">U</span><sub><span 
+class="lmmi-7">i</span></sub>[<span 
+class="lmmi-10">k</span>] is the <span 
+class="rm-lmri-10">discrete Fourier transform </span>(DFT) of <span 
+class="lmmi-10">u</span><sub><span 
+class="lmmi-7">i</span></sub>[<span 
+class="lmmi-10">n</span>] (<span 
+class="lmmi-10">i </span>= <span 
+class="lmsy-10">{</span><span 
+class="rm-lmtt-10">A</span><span 
+class="lmmi-10">,</span><span 
+class="rm-lmtt-10">C</span><span 
+class="lmmi-10">,</span><span 
+class="rm-lmtt-10">G</span><span 
+class="lmmi-10">,</span><span 
+class="rm-lmtt-10">T</span><span 
+class="lmsy-10">}</span>). In <span class="cite">[<a 
+href="#XTiwari01061997">20</a>]</span>, it
+has been empirically shown that for a coding region within a DNA sequence (a region
+that can be converted to a protein), equation (<a 
+href="#x1-8002r13">13<!--tex4ht:ref: eq:sk --></a>) has a clear peak at <span 
+class="lmmi-10">k </span>= <span 
+class="lmmi-10">N∕</span>3 where <span 
+class="lmmi-10">N</span>
+is the DNA sequence length. While this observation has been referred to in
+various studies, to the authors&#8217; knowledge, no mathematical explanation has yet  
+                                                                     
+been presented for it. However, using our proposed machinery, one observes a
+similar periodicity by using the identity similarity matrix (<a 
+href="#x1-4001r9">9<!--tex4ht:ref: eq:simmatrix --></a>) and by calculating
+the spectral function (<a 
+href="#x1-2004r4">4<!--tex4ht:ref: eq:spectrum --></a>). The results of this comparison are shown in Figure
+<a 
+href="#x1-80036">6<!--tex4ht:ref: fig:coding --></a>.
+<!--l. 474--><p class="indent" >  To illustrate this, we take a DNA sequence with the NCBI accession number
+<span 
+class="rm-lmtt-10">NM</span><span 
+class="rm-lmtt-10">_001244612.1</span>. This DNA sequence with 4165 base pairs is known to be a coding
+region for human proteins. Figure <a 
+href="#x1-80036">6<!--tex4ht:ref: fig:coding --></a> shows the DNA spectrum calculated from indicator
+sequences. The second signal in Figure <a 
+href="#x1-80036">6<!--tex4ht:ref: fig:coding --></a> is the Fourier transform of the proposed
+symmetry function (<a 
+href="#x1-2003r3">3<!--tex4ht:ref: eq:symmfunction --></a>). The peak for the Fourier transform of (<a 
+href="#x1-2003r3">3<!--tex4ht:ref: eq:symmfunction --></a>) reports a periodicity at
+<span 
+class="lmmi-10">N∕</span>3.
+<!--l. 478--><p class="indent" >  <hr class="figure"><div class="figure" 
+>
+                                                                     
+                                                                     
+                                                                     
+                                                                     
+<div 
+class="colorbox" id="colorbox8"><!--l. 480--><p class="noindent" ><img 
+src="ISP19x.png" alt="PIC" class="graphics" width="541.5pt" height="259.85667pt" ><!--tex4ht:graphics  
+name="ISP19x.png" src="pics/codingregion.eps"  
+-->
+<br /> <div class="caption" 
+><span class="id">Figure 6: </span><span  
+class="content">A comparison between Tiwari&#8217;s method <span class="cite">[<a 
+href="#XTiwari01061997">20</a>]</span> and the DFT of (<a 
+href="#x1-2003r3">3<!--tex4ht:ref: eq:symmfunction --></a>) for a
+DNA sequence with the accession number <span 
+class="rm-lmtt-10">NM</span><span 
+class="rm-lmtt-10">_001244612.1</span>. Both signals have a
+peak at <span 
+class="lmmi-10">k </span>= <span 
+class="lmmi-10">N∕</span>3 (for better illustration one of the signals has been shifted up.)</span></div><!--tex4ht:label?: x1-80036 --></div>
+                                                                     
+                                                                     
+<!--l. 484--><p class="indent" >  </div><hr class="endfigure">
+  <h3 class="sectionHead"><span class="titlemark">6  </span> <a 
+ id="x1-90006"></a>Discussion and Conclusion</h3>
+<!--l. 494--><p class="noindent" >In this study, using the notion of interpretive signal processing (ISP), the conventional
+time-frequency transforms have been extended to analyze non-numerical genomic
+sequences. Applications of the proposed machinery in determining genome periodicity
+and detecting tandem repeats were presented using synthetic and real DNA
+sequences. The results show that the proposed ISP-inspired TF transforms (to
+which we refer as the interpretive TF analysis) can be useful to analyze genomic
+sequences.
+<!--l. 496--><p class="indent" >  In our experiments, we show that by defining the instantaneous auto-correlation of
+DNA sequences using similarity matrices, local and global periodicities in the sequences
+can be detected by the WV transform in (<a 
+href="#x1-2005r5">5<!--tex4ht:ref: eq:wignerville --></a>). Symmetric sub-sequences can be
+determined by the symmetry function (<a 
+href="#x1-2003r3">3<!--tex4ht:ref: eq:symmfunction --></a>) and the stationarity and spectral properties of
+sequences can be recognized by the ambiguity function (<a 
+href="#x1-2006r6">6<!--tex4ht:ref: eq:ambiguity --></a>). Also, the global spectrum of
+the sequences can be calculated by the spectrum of the sequences (<a 
+href="#x1-2004r4">4<!--tex4ht:ref: eq:spectrum --></a>) and the
+global correlation of the sequences can be found by the auto-correlation function
+(<a 
+href="#x1-2002r2">2<!--tex4ht:ref: eq:corrfunction --></a>).
+<!--l. 498--><p class="indent" >  The major advantage of ISP <span 
+class="rm-lmri-10">per se </span>is to process the non-numerical symbols
+directly (instead of converting the symbols into numerical values). This property
+simplifies the interpretation of the output of signal processing algorithms when
+applied to non-numerical symbols. However, ISP is not always trivial, since the
+interpretation of mathematical equations is not always straightforward. Moreover, the
+interpretation of signal processing algorithms is not necessarily unique and in some cases
+unfeasible. Therefore, in practice ISP can result in algorithms that are only partially
+applicable to non-numerical data while the remaining parts are left unchanged&#8212;as
+in the TF transforms presented in this work, in which only the instantaneous
+auto-correlation function was replaced with the similarity matrix of genomic
+sequences.
+<!--l. 500--><p class="indent" >  Other aspects of the proposed interpretive TF analysis that require further work are: 1)
+investigating other biologically-inspired applications of the proposed machinery; 2)
+studying different choices of similarity matrices in various applications such as DNA or
+protein sequence alignment; 3) integrating the proposed machinery in existing sequence
+analysis toolboxes for extracting further quantitative and visual information from
+genomic sequences; 4) using the TF representations as features (as an image) and using
+image classification and clustering techniques for classifying unknown genomic sequences;
+and 5) extending the hereby proposed notion to higher order spectra (HOS) and higher
+order time-frequency analysis.
+<!--l. 502--><p class="indent" >  These contributions can be considered as a step towards the development of a rigorous
+mathematical construct for genomic sequence signal processing.
+<!--l. 513--><p class="noindent" >
+<a 
+ id="x1-9001r16"></a>
+ <!--l. 513--><p class="noindent" ><span 
+class="rm-lmssbx-10x-x-70">7</span> <span 
+class="rm-lmssbx-10x-x-70">Competing</span>
+ <span 
+class="rm-lmssbx-10x-x-70">interests</span>
+<a 
+ id="Q1-1-17"></a>
+<!--l. 514--><p class="noindent" ><span 
+class="rm-lmss-8x-x-87">The authors declare that they have no competing interests.</span>
+                                                                     
+                                                                     
+<!--l. 541-->
+<p class="noindent" ><span 
+class="rm-lmssbx-10x-x-70">References</span>
+  <!--l. 541-->
+
+<p class="noindent" >
+<div class="thebibliography">
+   <p class="bibitem" ><span class="biblabel">
+  <span 
+class="rm-lmss-8x-x-87">1.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="XAnastassiou2001"></a><span 
+class="rm-lmss-8x-x-87">Anastassiou</span>
+   <span 
+class="rm-lmss-8x-x-87">D.</span>
+   <span 
+class="rm-lmss-8x-x-87">Genomic</span>
+   <span 
+class="rm-lmss-8x-x-87">signal</span>
+   <span 
+class="rm-lmss-8x-x-87">processing.</span>
+   <span 
+class="rm-lmss-8x-x-87">Signal</span>
+   <span 
+class="rm-lmss-8x-x-87">Processing</span>
+   <span 
+class="rm-lmss-8x-x-87">Magazine,</span>
+   <span 
+class="rm-lmss-8x-x-87">IEEE.</span>
+   <span 
+class="rm-lmss-8x-x-87">2001</span>
+   <span 
+class="rm-lmss-8x-x-87">July;18(4):8&#8211;20.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+  <span 
+class="rm-lmss-8x-x-87">2.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="XKakumaniAD10"></a><span 
+class="rm-lmss-8x-x-87">Kakumani</span>
+   <span 
+class="rm-lmss-8x-x-87">R,</span>
+   <span 
+class="rm-lmss-8x-x-87">Ahmad</span>
+   <span 
+class="rm-lmss-8x-x-87">MO,</span>
+   <span 
+class="rm-lmss-8x-x-87">Devabhaktuni</span>
+   <span 
+class="rm-lmss-8x-x-87">V.</span>
+   <span 
+class="rm-lmss-8x-x-87">Comparative</span>
+   <span 
+class="rm-lmss-8x-x-87">genomic</span>
+   <span 
+class="rm-lmss-8x-x-87">analysis</span>
+   <span 
+class="rm-lmss-8x-x-87">using</span>
+   <span 
+class="rm-lmss-8x-x-87">statistically</span>
+   <span 
+class="rm-lmss-8x-x-87">optimal</span>
+   <span 
+class="rm-lmss-8x-x-87">null</span>
+   <span 
+class="rm-lmss-8x-x-87">filters.</span>
+   <span 
+class="rm-lmss-8x-x-87">In:</span>
+   <span 
+class="rm-lmss-8x-x-87">ISCAS.</span>
+   <span 
+class="rm-lmss-8x-x-87">IEEE;</span>
+   <span 
+class="rm-lmss-8x-x-87">2010.</span>
+   <span 
+class="rm-lmss-8x-x-87">p.</span>
+   <span 
+class="rm-lmss-8x-x-87">2235&#8211;2238.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+  <span 
+class="rm-lmss-8x-x-87">3.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>                                                                
+                                                                     
+   <a 
+ id="XAfreixo"></a><span 
+class="rm-lmss-8x-x-87">Afreixo</span>
+   <span 
+class="rm-lmss-8x-x-87">V,</span>
+   <span 
+class="rm-lmss-8x-x-87">Ferreira</span>
+   <span 
+class="rm-lmss-8x-x-87">PJSG,</span>
+   <span 
+class="rm-lmss-8x-x-87">Santos</span>
+   <span 
+class="rm-lmss-8x-x-87">D.</span>
+   <span 
+class="rm-lmss-8x-x-87">Fourier</span>
+   <span 
+class="rm-lmss-8x-x-87">analysis</span>
+   <span 
+class="rm-lmss-8x-x-87">of</span>
+   <span 
+class="rm-lmss-8x-x-87">symbolic</span>
+   <span 
+class="rm-lmss-8x-x-87">data:</span>
+   <span 
+class="rm-lmss-8x-x-87">A</span>
+   <span 
+class="rm-lmss-8x-x-87">brief</span>
+   <span 
+class="rm-lmss-8x-x-87">review.</span>
+   <span 
+class="rm-lmss-8x-x-87">Digital</span>
+   <span 
+class="rm-lmss-8x-x-87">Signal</span>
+   <span 
+class="rm-lmss-8x-x-87">Processing.</span>
+   <span 
+class="rm-lmss-8x-x-87">2004</span>
+   <span 
+class="rm-lmss-8x-x-87">Nov;14(6):523&#8211;530.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+  <span 
+class="rm-lmss-8x-x-87">4.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="XVaidyanathan04therole"></a><span 
+class="rm-lmss-8x-x-87">Vaidyanathan</span>
+   <span 
+class="rm-lmss-8x-x-87">PP,</span>
+   <span 
+class="rm-lmss-8x-x-87">jun</span>
+   <span 
+class="rm-lmss-8x-x-87">Yoon</span>
+   <span 
+class="rm-lmss-8x-x-87">B.</span>
+   <span 
+class="rm-lmss-8x-x-87">The</span>
+   <span 
+class="rm-lmss-8x-x-87">role</span>
+   <span 
+class="rm-lmss-8x-x-87">of</span>
+   <span 
+class="rm-lmss-8x-x-87">signal-processing</span>
+   <span 
+class="rm-lmss-8x-x-87">concepts</span>
+   <span 
+class="rm-lmss-8x-x-87">in</span>
+   <span 
+class="rm-lmss-8x-x-87">genomics</span>
+   <span 
+class="rm-lmss-8x-x-87">and</span>
+   <span 
+class="rm-lmss-8x-x-87">proteomics.</span>
+   <span 
+class="rm-lmss-8x-x-87">Journal</span>
+   <span 
+class="rm-lmss-8x-x-87">of</span>
+   <span 
+class="rm-lmss-8x-x-87">the</span>
+   <span 
+class="rm-lmss-8x-x-87">Franklin</span>
+   <span 
+class="rm-lmss-8x-x-87">Institute.</span>
+   <span 
+class="rm-lmss-8x-x-87">2004;341:111&#8211;135.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+  <span 
+class="rm-lmss-8x-x-87">5.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="Xflandrin1999time"></a><span 
+class="rm-lmss-8x-x-87">Flandrin</span>
+   <span 
+class="rm-lmss-8x-x-87">P.</span>
+   <span 
+class="rm-lmss-8x-x-87">Time-frequency/time-scale</span>
+   <span 
+class="rm-lmss-8x-x-87">analysis.</span>
+   <span 
+class="rm-lmss-8x-x-87">Academic</span>
+   <span 
+class="rm-lmss-8x-x-87">Press;</span>
+   <span 
+class="rm-lmss-8x-x-87">1999.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+  <span 
+class="rm-lmss-8x-x-87">6.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="XQian1999time"></a><span 
+class="rm-lmss-8x-x-87">Qian</span>
+   <span 
+class="rm-lmss-8x-x-87">S,</span>
+   <span 
+class="rm-lmss-8x-x-87">Chen</span>
+   <span 
+class="rm-lmss-8x-x-87">D.</span>
+   <span 
+class="rm-lmss-8x-x-87">Joint</span>
+   <span 
+class="rm-lmss-8x-x-87">Time-Frequency</span>
+   <span 
+class="rm-lmss-8x-x-87">Analysis:</span>
+   <span 
+class="rm-lmss-8x-x-87">Method</span>
+   <span 
+class="rm-lmss-8x-x-87">and</span>
+   <span 
+class="rm-lmss-8x-x-87">Application.</span>
+   <span 
+class="rm-lmss-8x-x-87">Prentice</span>
+   <span 
+class="rm-lmss-8x-x-87">Hall;</span>
+   <span 
+class="rm-lmss-8x-x-87">1996.</span>
+   </p>                                                                  
+                                                                     
+   <p class="bibitem" ><span class="biblabel">
+  <span 
+class="rm-lmss-8x-x-87">7.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="XBouaynaya2008"></a><span 
+class="rm-lmss-8x-x-87">Bouaynaya</span>
+   <span 
+class="rm-lmss-8x-x-87">N,</span>
+   <span 
+class="rm-lmss-8x-x-87">Schonfeld</span>
+   <span 
+class="rm-lmss-8x-x-87">D.</span>
+   <span 
+class="rm-lmss-8x-x-87">Nonstationary</span>
+   <span 
+class="rm-lmss-8x-x-87">Analysis</span>
+   <span 
+class="rm-lmss-8x-x-87">of</span>
+   <span 
+class="rm-lmss-8x-x-87">Coding</span>
+   <span 
+class="rm-lmss-8x-x-87">and</span>
+   <span 
+class="rm-lmss-8x-x-87">Noncoding</span>
+   <span 
+class="rm-lmss-8x-x-87">Regions</span>
+   <span 
+class="rm-lmss-8x-x-87">in</span>
+   <span 
+class="rm-lmss-8x-x-87">Nucleotide</span>
+   <span 
+class="rm-lmss-8x-x-87">Sequences.</span>
+   <span 
+class="rm-lmss-8x-x-87">IEEE</span>
+   <span 
+class="rm-lmss-8x-x-87">Journal</span>
+   <span 
+class="rm-lmss-8x-x-87">of</span>
+   <span 
+class="rm-lmss-8x-x-87">Selected</span>
+   <span 
+class="rm-lmss-8x-x-87">Topics</span>
+   <span 
+class="rm-lmss-8x-x-87">in</span>
+   <span 
+class="rm-lmss-8x-x-87">Signal</span>
+   <span 
+class="rm-lmss-8x-x-87">Processing.</span>
+   <span 
+class="rm-lmss-8x-x-87">2008;2(3):357</span>
+   <span 
+class="rm-lmss-8x-x-87">&#8211;</span>
+   <span 
+class="rm-lmss-8x-x-87">364.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+  <span 
+class="rm-lmss-8x-x-87">8.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="XBouaynaya22008"></a><span 
+class="rm-lmss-8x-x-87">Bouaynaya</span>
+   <span 
+class="rm-lmss-8x-x-87">N,</span>
+   <span 
+class="rm-lmss-8x-x-87">Schonfeld</span>
+   <span 
+class="rm-lmss-8x-x-87">D.</span>
+   <span 
+class="rm-lmss-8x-x-87">Emergence</span>
+   <span 
+class="rm-lmss-8x-x-87">of</span>
+   <span 
+class="rm-lmss-8x-x-87">New</span>
+   <span 
+class="rm-lmss-8x-x-87">Structure</span>
+   <span 
+class="rm-lmss-8x-x-87">From</span>
+   <span 
+class="rm-lmss-8x-x-87">Non-stationary</span>
+   <span 
+class="rm-lmss-8x-x-87">Analysis</span>
+   <span 
+class="rm-lmss-8x-x-87">of</span>
+   <span 
+class="rm-lmss-8x-x-87">Genomic</span>
+   <span 
+class="rm-lmss-8x-x-87">Sequences.</span>
+   <span 
+class="rm-lmss-8x-x-87">In:</span>
+   <span 
+class="rm-lmss-8x-x-87">IEEE</span>
+   <span 
+class="rm-lmss-8x-x-87">International</span>
+   <span 
+class="rm-lmss-8x-x-87">Workshop</span>
+   <span 
+class="rm-lmss-8x-x-87">on</span>
+   <span 
+class="rm-lmss-8x-x-87">Genomic</span>
+   <span 
+class="rm-lmss-8x-x-87">Signal</span>
+   <span 
+class="rm-lmss-8x-x-87">Processing</span>
+   <span 
+class="rm-lmss-8x-x-87">and</span>
+   <span 
+class="rm-lmss-8x-x-87">Statistics;</span>
+   <span 
+class="rm-lmss-8x-x-87">2008.</span>
+   <span 
+class="rm-lmss-8x-x-87">p.</span>
+   <span 
+class="rm-lmss-8x-x-87">1&#8211;4.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+  <span 
+class="rm-lmss-8x-x-87">9.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="XZielinski2008"></a><span 
+class="rm-lmss-8x-x-87">Zielinski</span>
+   <span 
+class="rm-lmss-8x-x-87">J,</span>
+   <span 
+class="rm-lmss-8x-x-87">Schonfeld</span>
+   <span 
+class="rm-lmss-8x-x-87">NBD,</span>
+   <span 
+class="rm-lmss-8x-x-87">O&#8216;Neill</span>
+   <span 
+class="rm-lmss-8x-x-87">W.</span>
+   <span 
+class="rm-lmss-8x-x-87">Time-dependent</span>
+   <span 
+class="rm-lmss-8x-x-87">ARMA</span>
+   <span 
+class="rm-lmss-8x-x-87">modeling</span>                                                             
+                                                                     
+   <span 
+class="rm-lmss-8x-x-87">of</span>
+   <span 
+class="rm-lmss-8x-x-87">genomic</span>
+   <span 
+class="rm-lmss-8x-x-87">sequences.</span>
+   <span 
+class="rm-lmss-8x-x-87">BMC</span>
+   <span 
+class="rm-lmss-8x-x-87">Bioinformatics.</span>
+   <span 
+class="rm-lmss-8x-x-87">2008;9(Suppl</span>
+   <span 
+class="rm-lmss-8x-x-87">9):S14.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <span 
+class="rm-lmss-8x-x-87">10.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="XAnastassiou00"></a><span 
+class="rm-lmss-8x-x-87">Anastassiou</span>
+   <span 
+class="rm-lmss-8x-x-87">D.</span>
+   <span 
+class="rm-lmss-8x-x-87">Frequency-domain</span>
+   <span 
+class="rm-lmss-8x-x-87">analysis</span>
+   <span 
+class="rm-lmss-8x-x-87">of</span>
+   <span 
+class="rm-lmss-8x-x-87">biomolecular</span>
+   <span 
+class="rm-lmss-8x-x-87">sequences.</span>
+   <span 
+class="rm-lmss-8x-x-87">Bioinformatics.</span>
+   <span 
+class="rm-lmss-8x-x-87">2000;16(12):1073&#8211;1081.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <span 
+class="rm-lmss-8x-x-87">11.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="XSussillo"></a><span 
+class="rm-lmss-8x-x-87">Sussillo</span>
+   <span 
+class="rm-lmss-8x-x-87">D,</span>
+   <span 
+class="rm-lmss-8x-x-87">Kundaje</span>
+   <span 
+class="rm-lmss-8x-x-87">A,</span>
+   <span 
+class="rm-lmss-8x-x-87">Anastassiou</span>
+   <span 
+class="rm-lmss-8x-x-87">D.</span>
+   <span 
+class="rm-lmss-8x-x-87">Spectrogram</span>
+   <span 
+class="rm-lmss-8x-x-87">analysis</span>
+   <span 
+class="rm-lmss-8x-x-87">of</span>
+   <span 
+class="rm-lmss-8x-x-87">genomes.</span>
+   <span 
+class="rm-lmss-8x-x-87">EURASIP</span>
+   <span 
+class="rm-lmss-8x-x-87">J</span>
+   <span 
+class="rm-lmss-8x-x-87">Appl</span>
+   <span 
+class="rm-lmss-8x-x-87">Signal</span>
+   <span 
+class="rm-lmss-8x-x-87">Process.</span>
+   <span 
+class="rm-lmss-8x-x-87">2004</span>
+   <span 
+class="rm-lmss-8x-x-87">Jan;2004:29&#8211;42.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <span 
+class="rm-lmss-8x-x-87">12.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="Xhassani2012"></a><span 
+class="rm-lmss-8x-x-87">Hassani</span><span 
+class="rm-lmss-8x-x-87"> Saadi</span>
+   <span 
+class="rm-lmss-8x-x-87">H,</span>
+   <span 
+class="rm-lmss-8x-x-87">Sameni</span>
+   <span 
+class="rm-lmss-8x-x-87">R.</span>
+   <span 
+class="rm-lmss-8x-x-87">Using</span>
+   <span 
+class="rm-lmss-8x-x-87">matched</span>
+   <span 
+class="rm-lmss-8x-x-87">filters</span>
+   <span 
+class="rm-lmss-8x-x-87">for</span>
+   <span 
+class="rm-lmss-8x-x-87">similarity</span>
+   <span 
+class="rm-lmss-8x-x-87">search</span>
+   <span 
+class="rm-lmss-8x-x-87">in</span>
+   <span 
+class="rm-lmss-8x-x-87">genomic</span>
+   <span 
+class="rm-lmss-8x-x-87">data.</span>
+   <span 
+class="rm-lmss-8x-x-87">In:</span>
+   <span 
+class="rm-lmss-8x-x-87">Proceedings</span>
+   <span 
+class="rm-lmss-8x-x-87">of</span>
+   <span 
+class="rm-lmss-8x-x-87">the</span>
+   <span 
+class="rm-lmss-8x-x-87">16th</span>
+   <span 
+class="rm-lmss-8x-x-87">CSI</span>
+   <span 
+class="rm-lmss-8x-x-87">International</span>
+   <span 
+class="rm-lmss-8x-x-87">Symposium</span>
+   <span 
+class="rm-lmss-8x-x-87">on</span>
+   <span 
+class="rm-lmss-8x-x-87">Artificial</span>
+   <span 
+class="rm-lmss-8x-x-87">Intelligence</span>
+   <span 
+class="rm-lmss-8x-x-87">and</span>
+   <span 
+class="rm-lmss-8x-x-87">Signal</span>
+   <span 
+class="rm-lmss-8x-x-87">Processing</span>                                                            
+                                                                     
+   <span 
+class="rm-lmss-8x-x-87">(AISP).</span>
+   <span 
+class="rm-lmss-8x-x-87">Shiraz,</span>
+   <span 
+class="rm-lmss-8x-x-87">Iran;</span>
+   <span 
+class="rm-lmss-8x-x-87">2012.</span>
+   <span 
+class="rm-lmss-8x-x-87">p.</span>
+   <span 
+class="rm-lmss-8x-x-87">469&#8211;472.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <span 
+class="rm-lmss-8x-x-87">13.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="Xbuchner2003"></a><span 
+class="rm-lmss-8x-x-87">Buchner</span>
+   <span 
+class="rm-lmss-8x-x-87">M,</span>
+   <span 
+class="rm-lmss-8x-x-87">Janjarasjitt</span>
+   <span 
+class="rm-lmss-8x-x-87">S.</span>
+   <span 
+class="rm-lmss-8x-x-87">Detection</span>
+   <span 
+class="rm-lmss-8x-x-87">and</span>
+   <span 
+class="rm-lmss-8x-x-87">visualization</span>
+   <span 
+class="rm-lmss-8x-x-87">of</span>
+   <span 
+class="rm-lmss-8x-x-87">tandem</span>
+   <span 
+class="rm-lmss-8x-x-87">repeats</span>
+   <span 
+class="rm-lmss-8x-x-87">in</span>
+   <span 
+class="rm-lmss-8x-x-87">DNA</span>
+   <span 
+class="rm-lmss-8x-x-87">sequences.</span>
+   <span 
+class="rm-lmss-8x-x-87">Signal</span>
+   <span 
+class="rm-lmss-8x-x-87">Processing,</span>
+   <span 
+class="rm-lmss-8x-x-87">IEEE</span>
+   <span 
+class="rm-lmss-8x-x-87">Transactions</span>
+   <span 
+class="rm-lmss-8x-x-87">on.</span>
+   <span 
+class="rm-lmss-8x-x-87">2003</span>
+   <span 
+class="rm-lmss-8x-x-87">sept;51(9):2280&#8211;2287.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <span 
+class="rm-lmss-8x-x-87">14.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="Xpop2008"></a><span 
+class="rm-lmss-8x-x-87">Pop</span>
+   <span 
+class="rm-lmss-8x-x-87">PG,</span>
+   <span 
+class="rm-lmss-8x-x-87">Lupu</span>
+   <span 
+class="rm-lmss-8x-x-87">E.</span>
+   <span 
+class="rm-lmss-8x-x-87">DNA</span>
+   <span 
+class="rm-lmss-8x-x-87">repeats</span>
+   <span 
+class="rm-lmss-8x-x-87">detection</span>
+   <span 
+class="rm-lmss-8x-x-87">using</span>
+   <span 
+class="rm-lmss-8x-x-87">BW</span>
+   <span 
+class="rm-lmss-8x-x-87">spectrograms.</span>
+   <span 
+class="rm-lmss-8x-x-87">In:</span>
+   <span 
+class="rm-lmss-8x-x-87">Automation,</span>
+   <span 
+class="rm-lmss-8x-x-87">Quality</span>
+   <span 
+class="rm-lmss-8x-x-87">and</span>
+   <span 
+class="rm-lmss-8x-x-87">Testing,</span>
+   <span 
+class="rm-lmss-8x-x-87">Robotics,</span>
+   <span 
+class="rm-lmss-8x-x-87">2008.</span>
+   <span 
+class="rm-lmss-8x-x-87">AQTR</span>
+   <span 
+class="rm-lmss-8x-x-87">2008.</span>
+   <span 
+class="rm-lmss-8x-x-87">IEEE</span>
+   <span 
+class="rm-lmss-8x-x-87">International</span>
+   <span 
+class="rm-lmss-8x-x-87">Conference</span>
+   <span 
+class="rm-lmss-8x-x-87">on.</span>
+   <span 
+class="rm-lmss-8x-x-87">vol.</span><span 
+class="rm-lmss-8x-x-87"> 3;</span>
+   <span 
+class="rm-lmss-8x-x-87">2008.</span>
+   <span 
+class="rm-lmss-8x-x-87">p.</span>
+   <span 
+class="rm-lmss-8x-x-87">408</span>
+   <span 
+class="rm-lmss-8x-x-87">&#8211;412.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <span 
+class="rm-lmss-8x-x-87">15.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="Xcohen1995"></a><span 
+class="rm-lmss-8x-x-87">Cohen</span>
+   <span 
+class="rm-lmss-8x-x-87">L.</span>
+   <span 
+class="rm-lmss-8x-x-87">Time-frequency</span>
+   <span 
+class="rm-lmss-8x-x-87">analysis.</span>
+   <span 
+class="rm-lmss-8x-x-87">Prentice</span>
+   <span 
+class="rm-lmss-8x-x-87">Hall</span>                                                                
+                                                                     
+   <span 
+class="rm-lmss-8x-x-87">PTR,</span>
+   <span 
+class="rm-lmss-8x-x-87">Englewood</span>
+   <span 
+class="rm-lmss-8x-x-87">Cliffs,</span>
+   <span 
+class="rm-lmss-8x-x-87">N.J;</span>
+   <span 
+class="rm-lmss-8x-x-87">1995.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <span 
+class="rm-lmss-8x-x-87">16.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="Xtftb"></a><span 
+class="rm-lmss-8x-x-87">Auger</span>
+   <span 
+class="rm-lmss-8x-x-87">F,</span>
+   <span 
+class="rm-lmss-8x-x-87">Flandrin</span>
+   <span 
+class="rm-lmss-8x-x-87">P,</span>
+   <span 
+class="rm-lmss-8x-x-87">Goncalves</span>
+   <span 
+class="rm-lmss-8x-x-87">P,</span>
+   <span 
+class="rm-lmss-8x-x-87">Lemoine</span>
+   <span 
+class="rm-lmss-8x-x-87">O.</span>
+   <span 
+class="rm-lmss-8x-x-87">Time-Frequency</span>
+   <span 
+class="rm-lmss-8x-x-87">Toolbox;</span>
+   <span 
+class="rm-lmss-8x-x-87">1996.</span>
+   <span 
+class="rm-lmss-8x-x-87">Available</span>
+   <span 
+class="rm-lmss-8x-x-87">from:</span>
+   <a 
+href="http://tftb.nongnu.org/" class="url" ><span 
+class="rm-lmtt-8x-x-87">http://tftb.nongnu.org/</span></a><span 
+class="rm-lmss-8x-x-87">.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <span 
+class="rm-lmss-8x-x-87">17.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="XTheis2010"></a><span 
+class="rm-lmss-8x-x-87">Theis</span>
+   <span 
+class="rm-lmss-8x-x-87">F,</span>
+   <span 
+class="rm-lmss-8x-x-87">M</span><span 
+class="rm-lmss-8x-x-87">ller</span>
+   <span 
+class="rm-lmss-8x-x-87">N,</span>
+   <span 
+class="rm-lmss-8x-x-87">Plant</span>
+   <span 
+class="rm-lmss-8x-x-87">C,</span>
+   <span 
+class="rm-lmss-8x-x-87">B</span><span 
+class="rm-lmss-8x-x-87">hm</span>
+   <span 
+class="rm-lmss-8x-x-87">C.</span>
+   <span 
+class="rm-lmss-8x-x-87">Robust</span>
+   <span 
+class="rm-lmss-8x-x-87">Second-Order</span>
+   <span 
+class="rm-lmss-8x-x-87">Source</span>
+   <span 
+class="rm-lmss-8x-x-87">Separation</span>
+   <span 
+class="rm-lmss-8x-x-87">Identifies</span>
+   <span 
+class="rm-lmss-8x-x-87">Experimental</span>
+   <span 
+class="rm-lmss-8x-x-87">Responses</span>
+   <span 
+class="rm-lmss-8x-x-87">in</span>
+   <span 
+class="rm-lmss-8x-x-87">Biomedical</span>
+   <span 
+class="rm-lmss-8x-x-87">Imaging.</span>
+   <span 
+class="rm-lmss-8x-x-87">In:</span>
+   <span 
+class="rm-lmss-8x-x-87">Vigneron</span>
+   <span 
+class="rm-lmss-8x-x-87">V,</span>
+   <span 
+class="rm-lmss-8x-x-87">Zarzoso</span>
+   <span 
+class="rm-lmss-8x-x-87">V,</span>
+   <span 
+class="rm-lmss-8x-x-87">Moreau</span>
+   <span 
+class="rm-lmss-8x-x-87">E,</span>
+   <span 
+class="rm-lmss-8x-x-87">Gribonval</span>
+   <span 
+class="rm-lmss-8x-x-87">R,</span>
+   <span 
+class="rm-lmss-8x-x-87">Vincent</span>
+   <span 
+class="rm-lmss-8x-x-87">E,</span>
+   <span 
+class="rm-lmss-8x-x-87">editors.</span>
+   <span 
+class="rm-lmss-8x-x-87">Latent</span>
+   <span 
+class="rm-lmss-8x-x-87">Variable</span>
+   <span 
+class="rm-lmss-8x-x-87">Analysis</span>
+   <span 
+class="rm-lmss-8x-x-87">and</span>
+   <span 
+class="rm-lmss-8x-x-87">Signal</span>
+   <span 
+class="rm-lmss-8x-x-87">Separation.</span>
+   <span 
+class="rm-lmss-8x-x-87">vol.</span>
+   <span 
+class="rm-lmss-8x-x-87">6365</span>
+   <span 
+class="rm-lmss-8x-x-87">of</span>
+   <span 
+class="rm-lmss-8x-x-87">Lecture</span>
+   <span 
+class="rm-lmss-8x-x-87">Notes</span>
+   <span 
+class="rm-lmss-8x-x-87">in</span>
+   <span 
+class="rm-lmss-8x-x-87">Computer</span>
+   <span 
+class="rm-lmss-8x-x-87">Science.</span>
+   <span 
+class="rm-lmss-8x-x-87">Springer</span>                                                             
+                                                                     
+   <span 
+class="rm-lmss-8x-x-87">Berlin</span>
+   <span 
+class="rm-lmss-8x-x-87">/</span>
+   <span 
+class="rm-lmss-8x-x-87">Heidelberg;</span>
+   <span 
+class="rm-lmss-8x-x-87">2010.</span>
+   <span 
+class="rm-lmss-8x-x-87">p.</span>
+   <span 
+class="rm-lmss-8x-x-87">466&#8211;473.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <span 
+class="rm-lmss-8x-x-87">18.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="Xpevsner2009bioinformatics"></a><span 
+class="rm-lmss-8x-x-87">Pevsner</span>
+   <span 
+class="rm-lmss-8x-x-87">J.</span>
+   <span 
+class="rm-lmss-8x-x-87">Bioinformatics</span>
+   <span 
+class="rm-lmss-8x-x-87">and</span>
+   <span 
+class="rm-lmss-8x-x-87">functional</span>
+   <span 
+class="rm-lmss-8x-x-87">genomics.</span>
+   <span 
+class="rm-lmss-8x-x-87">Wiley-Blackwell;</span>
+   <span 
+class="rm-lmss-8x-x-87">2009.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <span 
+class="rm-lmss-8x-x-87">19.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="XGenBank:FJ807392.1"></a><span 
+class="rm-lmss-8x-x-87">Zhang</span>
+   <span 
+class="rm-lmss-8x-x-87">D,</span>
+   <span 
+class="rm-lmss-8x-x-87">Ding</span>
+   <span 
+class="rm-lmss-8x-x-87">G,</span>
+   <span 
+class="rm-lmss-8x-x-87">Zhang</span>
+   <span 
+class="rm-lmss-8x-x-87">H,</span>
+   <span 
+class="rm-lmss-8x-x-87">Tang</span>
+   <span 
+class="rm-lmss-8x-x-87">B.</span>
+   <span 
+class="rm-lmss-8x-x-87">Isolation</span>
+   <span 
+class="rm-lmss-8x-x-87">and</span>
+   <span 
+class="rm-lmss-8x-x-87">characterization</span>
+   <span 
+class="rm-lmss-8x-x-87">of</span>
+   <span 
+class="rm-lmss-8x-x-87">10</span>
+   <span 
+class="rm-lmss-8x-x-87">microsatellite</span>
+   <span 
+class="rm-lmss-8x-x-87">markers</span>
+   <span 
+class="rm-lmss-8x-x-87">in</span>
+   <span 
+class="rm-lmss-8x-x-87">Helice</span>
+   <span 
+class="rm-lmss-8x-x-87">tientsinensis</span>
+   <span 
+class="rm-lmss-8x-x-87">(Brachyura:</span>
+   <span 
+class="rm-lmss-8x-x-87">Varunidae).</span>
+   <span 
+class="rm-lmss-8x-x-87">Conserv</span>
+   <span 
+class="rm-lmss-8x-x-87">Genet</span>
+   <span 
+class="rm-lmss-8x-x-87">Resour.</span>
+   <span 
+class="rm-lmss-8x-x-87">2009;1(1):321&#8211;323.</span>
+   <span 
+class="rm-lmss-8x-x-87">GenBank:</span>
+   <span 
+class="rm-lmss-8x-x-87">FJ807392.1.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <span 
+class="rm-lmss-8x-x-87">20.</span><span class="bibsp"><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span><span 
+class="rm-lmss-8x-x-87"> </span></span></span>
+   <a 
+ id="XTiwari01061997"></a><span 
+class="rm-lmss-8x-x-87">Tiwari</span>
+   <span 
+class="rm-lmss-8x-x-87">S,</span>
+   <span 
+class="rm-lmss-8x-x-87">Ramachandran</span>
+   <span 
+class="rm-lmss-8x-x-87">S,</span>
+   <span 
+class="rm-lmss-8x-x-87">Bhattacharya</span>
+   <span 
+class="rm-lmss-8x-x-87">A,</span>
+   <span 
+class="rm-lmss-8x-x-87">Bhattacharya</span>
+   <span 
+class="rm-lmss-8x-x-87">S,</span>
+   <span 
+class="rm-lmss-8x-x-87">Ramaswamy</span>
+   <span 
+class="rm-lmss-8x-x-87">R.</span>
+   <span 
+class="rm-lmss-8x-x-87">Prediction</span>
+   <span 
+class="rm-lmss-8x-x-87">of</span>
+   <span 
+class="rm-lmss-8x-x-87">probable</span>
+   <span 
+class="rm-lmss-8x-x-87">genes</span>
+   <span 
+class="rm-lmss-8x-x-87">by</span>
+   <span 
+class="rm-lmss-8x-x-87">Fourier</span>
+   <span 
+class="rm-lmss-8x-x-87">analysis</span>
+   <span 
+class="rm-lmss-8x-x-87">of</span>
+   <span 
+class="rm-lmss-8x-x-87">genomic</span>
+   <span 
+class="rm-lmss-8x-x-87">sequences.</span>                                                            
+                                                                     
+   <span 
+class="rm-lmss-8x-x-87">Computer</span>
+   <span 
+class="rm-lmss-8x-x-87">applications</span>
+   <span 
+class="rm-lmss-8x-x-87">in</span>
+   <span 
+class="rm-lmss-8x-x-87">the</span>
+   <span 
+class="rm-lmss-8x-x-87">biosciences:</span>
+   <span 
+class="rm-lmss-8x-x-87">CABIOS.</span>
+   <span 
+class="rm-lmss-8x-x-87">1997;13(3):263&#8211;270.</span>
+</p>
+</div>
+                                                                     
+                                                                     
+   
+</body></html> 
+
+                                                                     
+
+

@@ -1,14 +1,13 @@
-title: Your awesome title
-author:
-  name: GitHub User
-  email: your-email@domain.com
+title: Reza Sameni
+# author:
+#  name: Reza Sameni
+#  email:
+url: "https://sameni.info" # the base hostname & protocol for your site
 
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
 description: >
-  Write an awesome description for your new site here. You can edit this line
-  in _config.yml. It will appear in your document head meta (for Google search
-  results) and in your feed.xml site description.
+  Reza Sameni's personal homepage
 
 # Build settings
 
@@ -21,15 +20,29 @@ theme: minima
 #remote_theme: jekyll/minima
 
 plugins:
-  - jekyll-feed
+#  - jekyll-feed
   - jekyll-seo-tag
+
+includes_dir: 
+ Research/Publications
 
 # Theme-specific settings
 
 # If you want to link only specific pages in your header, use this and add the path to the pages
 # in order as they should show up.
 header_pages:
-  - about.md
+  - index.md
+#  - projects.md
+#  - publications.md
+  - teaching.md
+#  - supervisions.md
+  - team.md
+  - contact.md
+#  - research_pool.md
+#  - ethics.md
+#  - resources.md
+
+google_analytics: UA-2117082-4
 
 # Set to `true` to show excerpts on the homepage.
 #show_excerpts: false
@@ -52,21 +65,22 @@ minima:
   #date_format: "%b-%d-%Y"
 
   # Generate social links in footer.
-  #social_links:
+  social_links:
   #  - { platform: devto,          user_url: "https://dev.to/jekyll" }
   #  - { platform: dribbble,       user_url: "https://dribbble.com/jekyll" }
   #  - { platform: facebook,       user_url: "https://www.facebook.com/jekyll" }
   #  - { platform: flickr,         user_url: "https://www.flickr.com/photos/jekyll" }
-  #  - { platform: github,         user_url: "https://github.com/jekyll/minima" }
-  #  - { platform: google_scholar, user_url: "https://scholar.google.com/citations?user=qc6CJjYAAAAJ" }
+    - { platform: github,         user_url: "https://github.com/rsameni" }
+    - { platform: google_scholar, user_url: "https://scholar.google.com/citations?user=MkoXtWwAAAAJ" }
   #  - { platform: instagram,      user_url: "https://www.instagram.com/jekyll" }
   #  - { platform: keybase,        user_url: "https://keybase.io/jekyll" }
-  #  - { platform: linkedin,       user_url: "https://www.linkedin.com/in/jekyll" }
+    - { platform: linkedin,       user_url: "https://www.linkedin.com/in/reza-sameni/" }
+    - { platform: orcid,          user_url: "https://orcid.org/0000-0003-4913-6825"}
   #  - { platform: microdotblog,   user_url: "https://micro.blog/jekyll" }
   #  - { platform: pinterest,      user_url: "https://www.pinterest.com/jekyll" }
   #  - { platform: stackoverflow,  user_url: "https://stackoverflow.com/users/1234567/jekyll" }
   #  - { platform: telegram,       user_url: "https://t.me/jekyll" }
-  #  - { platform: twitter,        user_url: "https://twitter.com/jekyllrb" }
+    - { platform: twitter,        user_url: "https://twitter.com/RezaSameni" }
   #  - { platform: x,              user_url: "https://x.com/jekyllrb" }
   #  - { platform: youtube,        user_url: "https://www.youtube.com/jekyll" }
 
