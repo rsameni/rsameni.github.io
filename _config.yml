@@ -75,13 +75,13 @@ minima:
   #  - { platform: instagram,      user_url: "https://www.instagram.com/jekyll" }
   #  - { platform: keybase,        user_url: "https://keybase.io/jekyll" }
     - { platform: linkedin,       user_url: "https://www.linkedin.com/in/reza-sameni/" }
-    - { platform: orcid,          user_url: "https://orcid.org/0000-0003-4913-6825"}
+  #  - { platform: orcid,          user_url: "https://orcid.org/0000-0003-4913-6825"}
   #  - { platform: microdotblog,   user_url: "https://micro.blog/jekyll" }
   #  - { platform: pinterest,      user_url: "https://www.pinterest.com/jekyll" }
   #  - { platform: stackoverflow,  user_url: "https://stackoverflow.com/users/1234567/jekyll" }
   #  - { platform: telegram,       user_url: "https://t.me/jekyll" }
-    - { platform: twitter,        user_url: "https://twitter.com/RezaSameni" }
-  #  - { platform: x,              user_url: "https://x.com/jekyllrb" }
+  #  - { platform: twitter,        user_url: "https://twitter.com/RezaSameni" }
+    - { platform: x,              user_url: "https://twitter.com/RezaSameni" }
   #  - { platform: youtube,        user_url: "https://www.youtube.com/jekyll" }
 
 
