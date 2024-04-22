@@ -22,6 +22,10 @@ theme: minima
 plugins:
 #  - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-redirect-from
+
+whitelist:
+  - jekyll-redirect-from
 
 includes_dir: 
  Research/Publications
@@ -36,8 +40,10 @@ header_pages:
 #  - publications.md
   - teaching.md
 #  - supervisions.md
-  - team.md
-  - contact.md
+#  - team.md
+  - research.md
+  - publications.md
+#  - contact.md
 #  - research_pool.md
 #  - ethics.md
 #  - resources.md
