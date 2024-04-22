@@ -21,8 +21,9 @@ My research focuses on biomedical signal processing and model-based machine lear
 
 ## Contact
 
-- *Address*: Woodruff Memorial Research Building, Office #4131 (4th floor), Department of Biomedical Informatics, [101 Woodruff Circle, Atlanta, GA 30322, USA](https://maps.app.goo.gl/a5XeJsTQw8nHHbmz7)
-- *Email*: [rsameni@dbmi.emory.edu](mailto:rsameni@dbmi.emory.edu)
-- *Homepage*: [www.sameni.info](http://www.sameni.info)
-- *Research Lab*: [Alphanumerics Lab](https://alphanumerics.bmi.emory.edu)
+- **Address:** Woodruff Memorial Research Building, Office #4131 (4th floor), Department of Biomedical Informatics, [101 Woodruff Circle, Atlanta, GA 30322, USA](https://maps.app.goo.gl/a5XeJsTQw8nHHbmz7)
+- **Email:** [rsameni@dbmi.emory.edu](mailto:rsameni@dbmi.emory.edu)
+- **Homepage:** [www.sameni.info](http://www.sameni.info)
+- **Research Lab:** [Alphanumerics Lab](https://sameni.org)
+
 ---
