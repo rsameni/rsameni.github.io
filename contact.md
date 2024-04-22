@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Contact me
+title: Contact
 ---
 
 - **Address**: Office #4131, 4th floor, Woodruff Memorial Research Building, Department of Biomedical Informatics, [101 Woodruff Circle, Atlanta, GA 30322, USA](https://maps.app.goo.gl/a5XeJsTQw8nHHbmz7)
