@@ -7,7 +7,7 @@ url: "https://sameni.info" # the base hostname & protocol for your site
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
 description: >
-  Reza Sameni, 2024
+  Reza Sameni's personal homepage, 2024
 
 # Build settings
 
@@ -68,7 +68,7 @@ minima:
   # Minima date format.
   # The default value is "%b %d, %Y" (e.g. Nov 14, 2023) 
   # Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
-  #date_format: "%b-%d-%Y"
+  date_format: "%b-%d-%Y"
 
   # Generate social links in footer.
   social_links:
