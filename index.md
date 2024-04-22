@@ -19,12 +19,10 @@ I was born in [Shiraz](https://en.wikipedia.org/wiki/Shiraz), a beautiful and hi
 My research focuses on biomedical signal processing and model-based machine learning. I also have hands-on experience in electronics and telecommunications, with industrial collaborations on digital systems design (including FPGA and embedded systems) and biomedical software and hardware development. Please visit my [lab webpage](https://sameni.org) for further details on my team's research. Feel free to contact me if you are interested in joining my research team or would like to collaborate on any of our current or previous research topics:
 
 
----
 ## Contact
 
 - *Address*: Woodruff Memorial Research Building, Office #4131 (4th floor), Department of Biomedical Informatics, [101 Woodruff Circle, Atlanta, GA 30322, USA](https://maps.app.goo.gl/a5XeJsTQw8nHHbmz7)
 - *Email*: [rsameni@dbmi.emory.edu](mailto:rsameni@dbmi.emory.edu)
-- *Homepage*: [www.sameni.info](www.sameni.info)
-- *Research Lab*: [Alphanumerics Lab](alphanumerics.bmi.emory.edu)
-
+- *Homepage*: [www.sameni.info](http://www.sameni.info)
+- *Research Lab*: [Alphanumerics Lab](https://alphanumerics.bmi.emory.edu)
 ---
