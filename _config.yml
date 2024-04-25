@@ -42,7 +42,9 @@ header_pages:
 #  - supervisions.md
 #  - team.md
   - research.md
+#  - research-old.md
   - publications.md
+  - team.md
 #  - contact.md
 #  - research_pool.md
 #  - ethics.md
