@@ -1,4 +1,4 @@
 ---
 title: Research
-redirect_to: https://sameni.org/
+redirect_to: https://alphanumerics.bmi.emory.edu/
 ---
