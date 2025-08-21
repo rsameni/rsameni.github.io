@@ -21,6 +21,9 @@ title: Teaching
 ## Courses taught
 
 ### Emory University (2020-present)
+* BMI 585 - Kalman Filtering
+Principles and Applications in Time Series Analysis and Forecasting, Fall 2025.
+* BMI 585 - Scientific Communications, Summer 2025, co-lectured with [Dr Matthew A. Reyna](https://reynalab.org/).
 * [BMI 532 - Model-based Machine Learning](https://github.com/rsameni/rsameni.github.io/tree/master/Research/Presentations/BMI-532-Model-Based-Machine-Learning-Apr2023.pdf), Spring 2023. *Prerequisite:* [A Primer on Dynamic Systems](https://github.com/rsameni/rsameni.github.io/tree/master/Research/Presentations/DynamicSystemsPrimer-July2021.pdf)
 * [BMI 500 - Lecture 11: An Introduction to Blind Source Separation and Independent Component Analysis](https://github.com/rsameni/rsameni.github.io/blob/master/Research/Presentations/BlindSourceSeparation_BMI500.pdf), Nov 2021-22. [Lab Codes](https://github.com/rsameni/BSSLecture.git)
 * [BMI 500 - Lecture 11: An Introduction to Model-based Machine Learning](https://github.com/rsameni/rsameni.github.io/blob/master/Research/Presentations/ModelBasedML_BMI500.pdf), Nov 2022.
