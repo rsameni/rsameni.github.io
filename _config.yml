@@ -28,7 +28,7 @@ whitelist:
   - jekyll-redirect-from
 
 includes_dir: 
- Research/Publications
+ research/publications
 
 # Theme-specific settings
 
