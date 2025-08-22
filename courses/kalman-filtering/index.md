@@ -1,6 +1,6 @@
 ---
 title: Kalman Filtering
-redirect_to: https://sameni.org/teaching.html
+redirect_to: https://sameni.info/teaching.html
 ---
 
 ## BMI 585 - Topics in Biomedical Informatics
