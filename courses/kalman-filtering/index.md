@@ -8,9 +8,6 @@ title: ""
 # Kalman Filtering: Principles and Applications in Time Series Analysis and Forecasting
 
 ---
-### Reza Sameni, PhD
-
----
 
 ### Course Description
 Sixty-five years after its invention, the **Kalman filter** remains one of the most powerful analysis tools across many disciplines, ranging from electrical, biomedical, and control engineering to artificial intelligence, with vast applications in signal processing, navigation, object tracking, robotics, weather forecasting, and financial market analysis.
