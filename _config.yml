@@ -24,13 +24,11 @@ plugins:
   - jekyll-seo-tag
   - jekyll-redirect-from
 
-whitelist:
-  - jekyll-redirect-from
+include:
+  - research/publications
+  - courses
+  - courses/kalman-filtering
 
-includes_dir: 
- research/publications
- courses/
- courses/kalman-filtering
 
 # Theme-specific settings
 
