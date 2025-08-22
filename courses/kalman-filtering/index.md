@@ -90,7 +90,7 @@ Readings and papers will be assigned throughout the course. Suggested foundation
 
 | Week | Topics                                                             | Learning Objectives                                                                          |
 | ---- | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
-| 1    | [Introduction to Kalman Filtering and its Applications](./lecture1.html)              | The big picture; Kalman filtering history, filtering, forecasting, and applications          |
+| 1    | Introduction to Kalman Filtering and its Applications | The big picture; Kalman filtering history, filtering, forecasting, and applications          |
 | 2    | Overview of Estimation Theory, Recursive Filtering and Forecasting | Estimation frameworks: least squares, ML, Bayesian, recursive estimation                     |
 | 3    | Modeling Dynamic Systems; State Variables and State-Space Models   | Model dynamic systems using difference/differential equations and state-space representation |
 | 4    | Linear Kalman Filter Theory                                        | Classical KF, parameter tuning, and applications to ECG/EEG                                  |

@@ -3,13 +3,13 @@ layout: page
 title: ""
 ---
 
-## [Kalman Filtering: Principles and Applications in Time Series Analysis and Forecasting](https://sameni.info/courses/kalman-filtering/)
+### [BMI 585 - Kalman Filtering: Principles and Applications in Time Series Analysis and Forecasting](https://sameni.info/courses/kalman-filtering/)
 
 ---
 
-# Lecture 1: Introduction to Kalman Filtering and Its Applications
+## Lecture 1: Introduction to Kalman Filtering and Its Applications
 
-## What is a Signal?
+### What is a Signal?
 A **signal** is a representation of information (such as a physical or physiological quantity) as a function of time or another independent variable like space.
 
 - **Deterministic signals**: fully described and predictable from a mathematical expression (e.g., a sinusoid or a periodic pulse wave).  
@@ -23,7 +23,7 @@ Central to these are **probability distribution functions**, which formalize our
 
 ---
 
-## What is a System?
+### What is a System?
 In our context, a **system** is a mathematical and/or algorithmic set of steps taken on a deterministic/stochastic input signal to map it to another signal. The systems we study operate on time-series data (sequences of data points) and deliver sequences of data points in their output.
 
 **Filters** are specific types of systems that separate “desired” from “undesired” parts.
@@ -66,7 +66,7 @@ More accurately, this depends on the nature of the signals. If a signal varies �
 
 ---
 
-## Dynamics and States
+### Dynamics and States
 This brings us to the concept of **dynamics and states**.
 
 While filters can be formulated in terms of relationships between inputs, outputs, and coefficients using difference or differential equations, it is often convenient to use **first-order difference/differential equations** and relate inputs and outputs indirectly through so-called **state variables**. Using state variables, inputs impact states, and states (and inputs) impact outputs. State variables bring more flexibility and stronger mathematical tools for analysing linear and nonlinear systems.
@@ -85,7 +85,7 @@ Depending on the case, states may or may not have physical interpretation. In ph
 
 ---
 
-## Priors and Posteriors
+### Priors and Posteriors
 Filtering and filter design is context- and application-dependent and heavily relies on what we know about the signal and noise components. Consider:
 
 - recovering ECG from noisy wearable measurements  
@@ -96,7 +96,7 @@ Even without an actual measurement, we know something about what the waveforms c
 
 ---
 
-## The Kalman Filter
+### The Kalman Filter
 **Kalman filters** are adaptive filters specifically designed for stochastic processes, which *optimally* fuse priors and posteriors. 
 
 **Optimality** will be defined. For random variables it is defined **statistically**-using average measures such as **mean absolute error**, **mean squared error**, or other risk criteria.
@@ -109,8 +109,8 @@ The Kalman filtering theory stands on multiple pillars and combines several disc
 
 ---
 
-## Throughout This Course...
-...we will (per the syllabus) build from fundamentals to applications:
+### Throughout This Course...
+We will (per the syllabus) build from fundamentals to applications:
 
 1. **Foundations**: stochastic signals; estimation theory; state-space modeling  
 2. **Linear KF**: derivation, insight, steady-state (Wiener) behavior; fixed-lag/interval smoothing  
