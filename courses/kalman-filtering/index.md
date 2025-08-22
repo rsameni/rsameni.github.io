@@ -28,13 +28,28 @@ This graduate-level course offers a deep dive into Kalman filtering theory and i
 
 Students will gain a deep understanding of both theoretical foundations and practical implementations, including hands-on coding (in Python or MATLAB), applied filtering, state estimation, and forecasting under uncertainty and noise.
 
-### Course Goals
+#### Course Goals
 By the end of the course, students will be able to:
 
 * Formulate and analyze state-space models for dynamic systems and real-world data
 * Implement, fine-tune, compare, and diagnose various Kalman filter algorithms
 * Apply filtering techniques in domains such as biomedical time-series analysis
 * Understand the strengths, limitations, and trade-offs of Kalman filtering in real-world applications
+
+#### Deliverables
+
+* Homework assignments
+* A mini-project on an approved application
+
+---
+
+#### Evaluation
+
+| Component                              | Weight |
+| -------------------------------------- | ------ |
+| Homework                               | 65%    |
+| Attendance, Punctuality, Participation | 10%    |
+| Final Project                          | 25%    |
 
 ---
 ### Prerequisites
@@ -50,22 +65,6 @@ Students must have completed or have strong knowledge in:
 
 ---
 
-### Deliverables
-
-* Homework assignments
-* A mini-project on an approved application
-
----
-
-### Course Requirements and Evaluation
-
-| Component                              | Weight |
-| -------------------------------------- | ------ |
-| Homework                               | 65%    |
-| Attendance, Punctuality, Participation | 10%    |
-| Final Project                          | 25%    |
-
----
 
 ### Books, Materials, and Readings
 
@@ -87,11 +86,11 @@ Readings and papers will be assigned throughout the course. Suggested foundation
 
 ---
 
-## Class Schedule and Learning Objectives
+### Weekly Schedule and Learning Objectives
 
 | Week | Topics                                                             | Learning Objectives                                                                          |
 | ---- | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
-| 1    | Introduction to Kalman Filtering and its Applications              | The big picture; Kalman filtering history, filtering, forecasting, and applications          |
+| 1    | [Introduction to Kalman Filtering and its Applications](./lecture1.md)              | The big picture; Kalman filtering history, filtering, forecasting, and applications          |
 | 2    | Overview of Estimation Theory, Recursive Filtering and Forecasting | Estimation frameworks: least squares, ML, Bayesian, recursive estimation                     |
 | 3    | Modeling Dynamic Systems; State Variables and State-Space Models   | Model dynamic systems using difference/differential equations and state-space representation |
 | 4    | Linear Kalman Filter Theory                                        | Classical KF, parameter tuning, and applications to ECG/EEG                                  |
