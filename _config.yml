@@ -27,8 +27,6 @@ plugins:
 include:
   - research/publications
   - courses
-  - courses/kalman-filtering
-
 
 # Theme-specific settings
 
