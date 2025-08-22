@@ -1,5 +1,6 @@
 ---
-title: Kalman Filtering
+layout: page
+title: ""
 redirect_to: https://sameni.info/teaching.html
 ---
 
