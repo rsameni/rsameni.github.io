@@ -29,6 +29,8 @@ whitelist:
 
 includes_dir: 
  research/publications
+ courses/
+ courses/kalman-filtering
 
 # Theme-specific settings
 
