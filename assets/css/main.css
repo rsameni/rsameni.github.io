@@ -14,7 +14,7 @@
   --accent-soft: rgba(11, 101, 112, 0.28);
   --trace-line: #d3dde2;
 
-  --font-text: "Source Serif 4", "Source Serif Pro", Charter, "Bitstream Charter", Georgia, Cambria, serif;
+  --font-text: var(--font-ui); /* body text uses the same sans-serif as headings */
   --font-ui: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 
@@ -51,9 +51,8 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-text);
-  font-size: 1.0625rem;
-  line-height: 1.7;
-  font-optical-sizing: auto;
+  font-size: 1rem;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;
@@ -433,7 +432,7 @@ a:hover { color: var(--accent); text-decoration-color: currentColor; }
 
 /* ---------- Small screens ---------- */
 @media (max-width: 36rem) {
-  body { font-size: 1rem; }
+  body { font-size: 0.9688rem; }
   .site-header { padding-top: 1.25rem; }
   .site-main { padding-top: 2rem; }
 
