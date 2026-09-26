@@ -192,7 +192,7 @@ a:hover { color: var(--accent); text-decoration-color: currentColor; }
 .bismillah {
   width: 4.25rem;
   aspect-ratio: 110 / 133;
-  margin: 0 auto 2.25rem;
+  margin: 0 0 2.25rem;
   background-color: var(--ink);
   -webkit-mask-size: contain;
   mask-size: contain;
