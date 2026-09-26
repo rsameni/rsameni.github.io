@@ -30,7 +30,6 @@ title: Teaching
 * Estimation theory & optimal filtering
 * Reconfigurable architectures
 * Digital signal processing
-
 * Electrical circuits
 * Signals and systems
 * Linear control systems
