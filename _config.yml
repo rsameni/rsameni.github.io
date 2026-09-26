@@ -1,89 +1,87 @@
+# ---------------------------------------------------------------------------
+# sameni.info — site configuration
+# Self-contained layout (no external theme). Works with both GitHub Pages
+# build modes: the Actions workflow (.github/workflows/jekyll.yml) and the
+# classic "Deploy from branch" builder.
+# ---------------------------------------------------------------------------
+
 title: Reza Sameni
-# author:
-#  name: Reza Sameni
-#  email:
-url: "https://sameni.info" # the base hostname & protocol for your site
+description: >-
+  Reza Sameni is an Associate Professor of Biomedical Informatics at Emory
+  University working on biomedical signal processing, model-based machine
+  learning, and medical informatics.
+lang: en
 
-# The `>` after `description:` means to ignore line-breaks until next key.
-# If you want to omit the line-break after the end of text, use `>-` instead.
-description: >
-  Reza Sameni's personal homepage
+# Custom domain. The CNAME file in the repo root must keep saying "sameni.info".
+url: "https://sameni.info"
+baseurl: ""
 
-# Build settings
+author:
+  name: Reza Sameni
+  email: rsameni@dbmi.emory.edu
+  url: "https://sameni.info"
 
-# If you clone the Minima repo and build locally, use this setting.
-theme: minima
+# Used by jekyll-seo-tag for structured data (sameAs profiles).
+social:
+  name: Reza Sameni
+  links:
+    - "https://scholar.google.com/citations?user=MkoXtWwAAAAJ"
+    - "https://github.com/rsameni"
+    - "https://www.linkedin.com/in/reza-sameni/"
+    - "https://sameni.org"
 
-# As of November 2023, GitHub Pages still uses Minima 2.5.1 (https://pages.github.com/versions/). 
-# If you want to use the latest Minima version on GitHub Pages, use the following setting and 
-# add a line comment on "theme: minima" above.
-#remote_theme: jekyll/minima
-
-plugins:
-#  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-redirect-from
-
-# Theme-specific settings
-
-# If you want to link only specific pages in your header, use this and add the path to the pages
-# in order as they should show up.
+# ---------------------------------------------------------------------------
+# Navigation — pages listed here appear in the header, in this order.
+# Pages without a title (e.g. index.md) are skipped. Pages that use
+# `redirect_to:` link straight to their destination.
+# ---------------------------------------------------------------------------
 header_pages:
-  - index.md
-#  - projects.md
-#  - publications.md
   - teaching.md
-#  - supervisions.md
-#  - team.md
   - research.md
-#  - research-old.md
   - publications.md
   - team.md
-#  - contact.md
+#  - supervisions.md
 #  - research_pool.md
-#  - ethics.md
 #  - resources.md
+#  - ethics.md
 
+# ---------------------------------------------------------------------------
+# Profile links (homepage + footer). `icon` must be one of:
+# mail, lab, scholar, github, linkedin, orcid
+# ---------------------------------------------------------------------------
+social_links:
+  - { label: "Email",            icon: mail,     url: "mailto:rsameni@dbmi.emory.edu" }
+  - { label: "Alphanumerics Lab", icon: lab,     url: "https://sameni.org" }
+  - { label: "Google Scholar",   icon: scholar,  url: "https://scholar.google.com/citations?user=MkoXtWwAAAAJ" }
+  - { label: "GitHub",           icon: github,   url: "https://github.com/rsameni" }
+  - { label: "LinkedIn",         icon: linkedin, url: "https://www.linkedin.com/in/reza-sameni/" }
+#  - { label: "ORCID",           icon: orcid,    url: "https://orcid.org/0000-0003-4913-6825" }
+
+# Google Analytics. Only GA4 IDs ("G-XXXXXXX") are emitted. The old
+# Universal Analytics ID below stopped collecting data in July 2023, so it is
+# kept for reference but ignored. Replace it with a GA4 ID to re-enable.
 google_analytics: UA-2117082-4
 
-# Set to `true` to show excerpts on the homepage.
-#show_excerpts: false
+# ---------------------------------------------------------------------------
+# Build
+# ---------------------------------------------------------------------------
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
 
-# Minima specific settings, which are only available from Minima 3.0 onward.
-minima:
-  # Minima skin selection.
-  # Available skins are:
-  # classic	           Default, light color scheme.
-  # dark	             Dark variant of the classic skin.
-  # auto	             Adaptive skin based on the default classic and dark skins.
-  # solarized-light	   Light variant of solarized color scheme.
-  # solarized-dark	   Dark variant of solarized color scheme.
-  # solarized	         Adaptive skin for solarized color scheme skins.
-  skin: classic
-  
-  # Minima date format.
-  # The default value is "%b %d, %Y" (e.g. Nov 14, 2023) 
-  # Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
-  date_format: "%b-%d-%Y"
+plugins:
+  - jekyll-seo-tag
+  - jekyll-redirect-from
+  - jekyll-sitemap
 
-  # Generate social links in footer.
-  social_links:
-  #  - { platform: devto,          user_url: "https://dev.to/jekyll" }
-  #  - { platform: dribbble,       user_url: "https://dribbble.com/jekyll" }
-  #  - { platform: facebook,       user_url: "https://www.facebook.com/jekyll" }
-  #  - { platform: flickr,         user_url: "https://www.flickr.com/photos/jekyll" }
-    - { platform: github,         user_url: "https://github.com/rsameni" }
-  #  - { platform: instagram,      user_url: "https://www.instagram.com/jekyll" }
-  #  - { platform: keybase,        user_url: "https://keybase.io/jekyll" }
-    - { platform: linkedin,       user_url: "https://www.linkedin.com/in/reza-sameni/" }
-    - { platform: google_scholar, user_url: "https://scholar.google.com/citations?user=MkoXtWwAAAAJ" }
-  #  - { platform: orcid,          user_url: "https://orcid.org/0000-0003-4913-6825"}
-  #  - { platform: microdotblog,   user_url: "https://micro.blog/jekyll" }
-  #  - { platform: pinterest,      user_url: "https://www.pinterest.com/jekyll" }
-  #  - { platform: stackoverflow,  user_url: "https://stackoverflow.com/users/1234567/jekyll" }
-  #  - { platform: telegram,       user_url: "https://t.me/jekyll" }
-  #  - { platform: twitter,        user_url: "https://twitter.com/RezaSameni" }
-  #  - { platform: x,              user_url: "https://twitter.com/RezaSameni" }
-  #  - { platform: youtube,        user_url: "https://www.youtube.com/jekyll" }
-
-
+# Never list CNAME here — it has to be copied into the built site.
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - .editorconfig
+  - .jekyll-cache/
+  - .sass-cache/
+  - vendor/
+  - node_modules/

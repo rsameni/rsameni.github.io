@@ -2,8 +2,6 @@
 layout: page
 title: Teaching
 ---
-
-***
 ## Invited lectures, tutorials and selected talks
 * [Advances in Noninvasive Fetal Electrocardiography](https://github.com/rsameni/rsameni.github.io/blob/master/research/presentations/AdvancesInFetalElectrocardiography-Reza-Sameni-EmoryNursingSchool.pdf), School of Nursing, Emory University, 7 Sep, 2022
 * [Kalman Filters in Biomedical Applications; From Theory to Practice](https://github.com/rsameni/rsameni.github.io/tree/master/research/presentations/KalmanFilterTutorial_TSPPM2021_Italy.pdf), 2nd International Summer School on Technologies and Signal Processing in Perinatal Medicine, Pula, Sardinia, Italy, 16-23 Jul 2021.
@@ -17,7 +15,6 @@ title: Teaching
 * [My Lab Research Highlights](https://github.com/rsameni/rsameni.github.io/tree/master/research/presentations/ResearchHighlightsGipsaLabTalk22Nov2018.pdf), 22 Nov 2018.
 * [Guidelines for writing efficient MATLAB® codes](https://github.com/rsameni/TechReport-EfficientMatlabCodeTutorial), revised: Aug 2020
 
-***
 ## Courses taught
 
 ### Emory University (2020-present)

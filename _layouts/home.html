@@ -1,61 +1,32 @@
 ---
 layout: base
 ---
-
-<div class="home">
-  {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
-
-  {{ content }}
-
-
-  {% if site.paginate %}
-    {% assign posts = paginator.posts %}
-  {% else %}
-    {% assign posts = site.posts %}
-  {% endif %}
-
-
-  {%- if posts.size > 0 -%}
-    {%- if page.list_title -%}
-      <h2 class="post-list-heading">{{ page.list_title }}</h2>
-    {%- endif -%}
-    <ul class="post-list">
-      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-      {%- for post in posts -%}
-      <li>
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-      </li>
-      {%- endfor -%}
-    </ul>
-
-    {% if site.paginate %}
-      <div class="pager">
-        <ul class="pagination">
-        {%- if paginator.previous_page %}
-          <li><a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page">{{ paginator.previous_page }}</a></li>
-        {%- else %}
-          <li><div class="pager-edge">•</div></li>
-        {%- endif %}
-          <li><div class="current-page">{{ paginator.page }}</div></li>
-        {%- if paginator.next_page %}
-          <li><a href="{{ paginator.next_page_path | relative_url }}" class="next-page">{{ paginator.next_page }}</a></li>
-        {%- else %}
-          <li><div class="pager-edge">•</div></li>
-        {%- endif %}
-        </ul>
-      </div>
+{%- assign p = page.profile -%}
+<section class="profile" aria-labelledby="profile-name">
+  {%- if p.bismillah != false %}
+  <div class="bismillah" role="img" aria-label="Bismillah"
+       {% assign mask = '/assets/images/bismillah-mask.png' | relative_url %}style="-webkit-mask-image: url('{{ mask }}'); mask-image: url('{{ mask }}')"></div>
+  {%- endif %}
+  <div class="profile-card">
+    {%- if p.photo %}
+    <img class="profile-photo" src="{{ p.photo | relative_url }}"
+         alt="Portrait of {{ p.name | default: site.title | escape }}"
+         width="480" height="480" fetchpriority="high">
     {%- endif %}
+    <div class="profile-text">
+      <h1 id="profile-name" class="profile-name">{{ p.name | default: site.title | escape }}</h1>
+      {%- if p.roles %}
+      <ul class="profile-roles">
+        {%- for role in p.roles %}
+        <li>{{ role | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+      {% include social-links.html class="profile-links" labels="yes" %}
+    </div>
+  </div>
+</section>
 
-  {%- endif -%}
-
+<div class="prose">
+  {{ content }}
 </div>
