@@ -27,7 +27,6 @@ For more information about my research team and ongoing projects, please visit t
 
 ## Contact
 
-- Woodruff Memorial Research Building, Room 4131 (4th Floor), [101 Woodruff Circle, Atlanta, GA 30322, USA](https://maps.app.goo.gl/a5XeJsTQw8nHHbmz7)
-- [rsameni@dbmi.emory.edu](mailto:rsameni@dbmi.emory.edu)
+- Woodruff Memorial Research Building, Room 4131 (4th Floor), [101 Woodruff Circle, Atlanta, GA 30322, USA](https://maps.app.goo.gl/a5XeJsTQw8nHHbmz7). Email: [rsameni@dbmi.emory.edu](mailto:rsameni@dbmi.emory.edu)
 - [The Alphanumerics Lab at Emory University & Georgia Tech](https://sameni.org)
 {: .contact }
